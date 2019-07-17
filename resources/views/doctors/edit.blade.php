@@ -2,20 +2,31 @@
 @section('content')
 <div class="page-content" id="video_page">
   <div class="row">
+      @if(session ('success'))
+      <div id="successMessage" class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session('success') }}
+    </div>
+    @endif
+    @if(session ('fail'))
+    <div id="successMessage" class="alert alert-danger">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+       {{ session('fail') }}
+   </div>
+   @endif
     <div class="col-md-3"> </div>
     <div class="col-md-6"> 
 
        <?php $user = session()->get('user');?>
         @if($user->role_id == 2)
 
-      <h2>Edit Doctor' Password</h2>
+      <h2>Change Doctor' Password</h2>
       <br>
       <form class="form-horizontal" method="post" action="{{url('/doctors/'.$doctor_info['id'])}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
        
-
-        <div class="form-group  {{ $errors->has('password') ? ' has-error' : '' }}">
+        <div class="form-group  {{ $errors->has('old_password') ? ' has-error' : '' }}">
           <label for="old_password" >{{ __('Old Password') }}</label>
           <input id="old_password" type="password" class="form-control" name="old_password" placeholder="Password" autocomplete="password">
 

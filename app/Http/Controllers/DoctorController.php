@@ -143,11 +143,19 @@ class DoctorController extends Controller
         $doc = Doctor::find($doctor->id);
 
         if($doc){
-            $old_pw = Crypt::decrypt($doc->password);
+            $pw = Crypt::decrypt($doc->password);
+            $old_pw = $request->old_password;
+            if($old_pw == $pw){
+                $doctor->password = Crypt::encrypt($request->password);
+            $doctor->save();
+            return redirect('/Admin_Login')->with('success', 'Password has been changed successfully, Please Login again!');
+            }else{
+                return redirect('/doctors/'.$doc['id'].'/edit')->with('fail', 'Old Password is wrong, Please try again!');
+            }
         }else{
 
         }
-return $old_pw;
+        return $old_pw;
 
     }else {
         $this->validate($request, [

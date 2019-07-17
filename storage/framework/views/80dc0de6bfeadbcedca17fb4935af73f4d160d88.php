@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- start banner Area -->
 <section class="banner-area relative about-banner" id="home">
@@ -8,9 +7,10 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                   {{ $department->name }}
+                   <?php echo e($department->name); ?>
+
                 </h1>
-                <!-- <p class="text-white link-nav"><a href="{{url('/home')}}">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="{{url('/doctor')}}"> Doctors</a></p> -->
+                <!-- <p class="text-white link-nav"><a href="<?php echo e(url('/home')); ?>">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="<?php echo e(url('/doctor')); ?>"> Doctors</a></p> -->
             </div>
         </div>
     </div>
@@ -22,8 +22,8 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-7">
                 <div class="title text-center">
-                  <!--   <h1 class="mb-10">{{ $department->name }}</h1> -->
-                    <p>{{ $department->descriptions }}</p>
+                  <!--   <h1 class="mb-10"><?php echo e($department->name); ?></h1> -->
+                    <p><?php echo e($department->descriptions); ?></p>
                 </div>
             </div>
         </div>
@@ -52,20 +52,21 @@
              </tr>
          </thead>
          <?php $num = 1 ; ?>
-         @foreach($doctors as $doctor )
+         <?php $__currentLoopData = $doctors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doctor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          <tbody>
             <tr> 
              <th scope="row" width="5%">
-                {{ $num++ }}
+                <?php echo e($num++); ?>
+
              </th>
-             <th width="10%">{{ $doctor->name }}</th>
+             <th width="10%"><?php echo e($doctor->name); ?></th>
              <th width="35%" style=" word-wrap:break-word;  word-break:break-all;     
-    overflow-wrap: break-all;">{{ $doctor->degree }}</th>
-             <th width="20%" >{{ $doctor->department->name }}</th>
+    overflow-wrap: break-all;"><?php echo e($doctor->degree); ?></th>
+             <th width="20%" ><?php echo e($doctor->department->name); ?></th>
              <th width="30%"></th>
          </tr>
      </tbody>
-     @endforeach
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  </table>
 </div>
 
@@ -75,4 +76,5 @@
 </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/departments/doctors.blade.php ENDPATH**/ ?>

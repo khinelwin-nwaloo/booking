@@ -800,3 +800,7 @@ h5{
     text-align: center;
     font-weight: bold !important;
 }
+table td th{
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}

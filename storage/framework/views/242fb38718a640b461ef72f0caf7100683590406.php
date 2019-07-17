@@ -30,10 +30,11 @@
         <div class="row justify-content-center d-flex align-items-center">
             <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-lg-4 col-md-6 single-team" >
-                <a href="https://www.asiaroyalhospital.com/doctors/obstertricians-gynaecologists/" class="doc"> 
+                <a href="<?php echo e(url('/department/'.$department['id'])); ?>" class="doc"> 
                     <div class="grouptitle" style="background-color:lightblue;text-align: center;">
                         <br>
-                        <img width="60" style="vertical-align:center;" height="60" src="https://www.asiaroyalhospital.com/wp-content/uploads/2019/02/pregnant.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+                        <img width="60" style="vertical-align:center;" height="60" 
+                        src="<?php echo e(url('/assets/img/departments/'.$department->image)); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
                         <div class="ww">
                             <br><p class="mm-font mm3">
                             <?php echo e($department->name); ?></p>

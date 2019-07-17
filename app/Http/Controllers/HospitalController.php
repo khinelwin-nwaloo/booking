@@ -25,7 +25,8 @@ class HospitalController extends Controller
     public function doctor()
     {   
         $doctors = Doctor::get();
-        return view('doctor',compact('doctors'));
+        $departments = Department::get();
+        return view('doctor',compact('doctors','departments'));
     }
     public function department()
     {   

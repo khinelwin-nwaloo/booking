@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- start banner Area -->
 <section class="banner-area relative about-banner" id="home">
@@ -10,7 +9,7 @@
                 <h1 class="text-white">
                     Doctors
                 </h1>
-                <p class="text-white link-nav"><a href="{{url('/home')}}">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="{{url('/doctor')}}"> Doctors</a></p>
+                <p class="text-white link-nav"><a href="<?php echo e(url('/home')); ?>">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="<?php echo e(url('/doctor')); ?>"> Doctors</a></p>
             </div>
         </div>
     </div>
@@ -29,7 +28,7 @@
         </div>
 
         <div class="row justify-content-center d-flex align-items-center">
-            @foreach($departments as $department)
+            <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-lg-4 col-md-6 single-team" >
                 <a href="https://www.asiaroyalhospital.com/doctors/obstertricians-gynaecologists/" class="doc"> 
                     <div class="grouptitle" style="background-color:lightblue;text-align: center;">
@@ -37,15 +36,15 @@
                         <img width="60" style="vertical-align:center;" height="60" src="https://www.asiaroyalhospital.com/wp-content/uploads/2019/02/pregnant.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
                         <div class="ww">
                             <br><p class="mm-font mm3">
-                            {{ $department->name }}</p>
+                            <?php echo e($department->name); ?></p>
                         </div>
                         <br>
                     </div>
                 </a>
             </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-       <!--  @foreach($doctors as $doctor)
+       <!--  <?php $__currentLoopData = $doctors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doctor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-3 col-md-6 single-team">
             <div class="thumb">
                 <img class="img-fluid" src="assets/img/doctors/t1.jpg" alt="">
@@ -57,13 +56,14 @@
                         <a href="#"><i class="fa fa-behance"></i></a>
                     </div>
                     <p>
-                        {{ $doctor->degree}}
+                        <?php echo e($doctor->degree); ?>
+
                     </p>
-                    <h4>{{ $doctor->name }} </h4>
+                    <h4><?php echo e($doctor->name); ?> </h4>
                 </div>
             </div>
         </div>
-        @endforeach -->
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
 
 
 
@@ -71,4 +71,5 @@
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/doctor.blade.php ENDPATH**/ ?>

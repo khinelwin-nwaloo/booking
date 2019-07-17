@@ -18,7 +18,6 @@
 	border-radius: 50%!important;
 }
 
-
 .sidebar_profile{
 	width: 25px;
 	height: 25px;
@@ -672,8 +671,9 @@ h5{
     height: 100%;
     font-family: 'Numans', sans-serif;
     }
+
     .container{
-    height: 100%;
+    height: 90%;
     align-content: center;
     }
 
@@ -776,3 +776,27 @@ h5{
         height:18px;
         border-radius:5px;
     }
+    .grouptitle {
+    padding: 10px;
+    background: #ECFBF3;
+    transition-duration: 0.5s;
+    /* background-image: url(images/groupbackground.png); */
+    background-attachment: cover;
+    background-position: center center;
+    margin: 5px 0px;
+    height: 180px;
+    border: 1px solid #dddada;
+    border-radius: 16px;
+    background-repeat: repeat;
+}
+.grouptitle img {
+    margin-top: 15px;
+    margin-left: 38%;
+}
+.grouptitle .ww {
+    padding: 3px 0px;
+    font-size: 15.3px;
+    color: #077338;
+    text-align: center;
+    font-weight: bold !important;
+}

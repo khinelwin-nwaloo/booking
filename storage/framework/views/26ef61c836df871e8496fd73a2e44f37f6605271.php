@@ -1,21 +1,21 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="container">
     <div class="row">
-      @if(session ('success'))
+      <?php if(session ('success')): ?>
       <div id="successMessage" class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ session('success') }}
+        <?php echo e(session('success')); ?>
+
     </div>
-    @endif
-    @if(session ('fail'))
+    <?php endif; ?>
+    <?php if(session ('fail')): ?>
     <div id="successMessage" class="alert alert-danger">
        <button type="button" class="btm btn-primary" data-dismiss="alert">×</button>
-       {{ session('fail') }}
+       <?php echo e(session('fail')); ?>
+
    </div>
-   @endif
+   <?php endif; ?>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -23,46 +23,47 @@
             <div class="panel-heading">Ziiwaka Medical Center</div>
             <div class="panel-body">
                 <form class="form-horizontal" method="POST" 
-                action="{{url('adminLogin')}}" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                action="<?php echo e(url('adminLogin')); ?>" enctype="multipart/form-data">
+                <?php echo e(csrf_field()); ?>
+
+                <div class="form-group<?php echo e($errors->has('role') ? ' has-error' : ''); ?>">
                     <label for="role" class="col-md-4 control-label">Login As</label>
 
                     <div class="col-md-6">
                         <select name="role" class="form-control selectpicker">
-                            @foreach($roles as $role)
-                            <option value="{{ $role->id }} ">{{ $role->name }}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($role->id); ?> "><?php echo e($role->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select> 
 
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
                     <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" autocomplete="off" name="email" value="{{ old('email') }}" required autofocus>
+                        <input id="email" type="email" class="form-control" autocomplete="off" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
 
-                        @if ($errors->has('email'))
+                        <?php if($errors->has('email')): ?>
                         <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
+                            <strong><?php echo e($errors->first('email')); ?></strong>
                         </span>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                     <label for="password" class="col-md-4 control-label">Password</label>
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control" name="password" required>
 
-                        @if ($errors->has('password'))
+                        <?php if($errors->has('password')): ?>
                         <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
+                            <strong><?php echo e($errors->first('password')); ?></strong>
                         </span>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -70,7 +71,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>> Remember Me
                                     </label>
                                 </div>
                             </div>
@@ -89,4 +90,6 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/auth/adminlogin.blade.php ENDPATH**/ ?>

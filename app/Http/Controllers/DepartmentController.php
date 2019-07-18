@@ -48,7 +48,7 @@ class DepartmentController extends Controller
                      $duty_time[6]['duty_time'] =   'Sunday:&nbsp&nbsp'.$duty->sun_s .' - '.$duty->sun_e ;
                 }
                 $doctor_dutytime['id'] = $doctors[$i]['id'];
-                $doctor_dutytime['id'] = $duty_time;
+                $doctor_dutytime[''] = $duty_time;
                 
         }
        

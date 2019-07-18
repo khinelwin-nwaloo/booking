@@ -21,34 +21,59 @@ class DepartmentController extends Controller
         $department = Department::find($id);
         $doctors = Doctor::where('department_id',$id)->get();
         
-        $duty_time = array();
+        
         $doctor_dutytime = array();
         for($i = 0 ; $i <count($doctors); $i++) {
+            $duty_time = array();
             $duty = Duty::where('doctor_id',$doctors[$i]['id'])->first();
-                
+                if($duty->sun_s){
+                      $duty_time[0]['time'] =   'Sunday:'.$duty->sun_s .' - '.$duty->sun_e ;
+                }else{
+                    $duty_time[0]['time'] = '';
+                }
                 if($duty->mon_s){
-                     $duty_time[0]['duty_time'] =   'Monday:&nbsp&nbsp'.$duty->mon_s .' - '.$duty->mon_e ;
+
+                     $duty_time[1]['time'] =   'Monday:'.$duty->mon_s .' - '.$duty->mon_e ;
+                }else{
+                    $duty_time[1]['time'] = '';
                 }
+
                 if($duty->tue_s){
-                     $duty_time[1]['duty_time'] =   'Tueday:&nbsp&nbsp'.$duty->tue_s .' - '.$duty->tue_e ;
+                     $duty_time[2]['time'] =   'Tueday:'.$duty->tue_s .' - '.$duty->tue_e ;
+                }else{
+                    $duty_time[2]['time'] = '';
                 }
+
                 if($duty->wed_s){
-                     $duty_time[2]['duty_time'] =   'Wednesday:&nbsp&nbsp'.$duty->wed_s .' - '.$duty->wed_e ;
+                     $duty_time[3]['time'] =   'Wednesday:'.$duty->wed_s .' - '.$duty->wed_e ;
+                }else{
+                    $duty_time[3]['time'] = '';
                 }
                 if($duty->thu_s){
-                     $duty_time[3]['duty_time'] =   'Thursday:&nbsp&nbsp'.$duty->thu_s .' - '.$duty->thu_e ;
+                     $duty_time[4]['time'] =   'Thursday:'.$duty->thu_s .' - '.$duty->thu_e ;
+                }else{
+                    $duty_time[4]['time'] = '';
                 }
                 if($duty->fri_s){
-                     $duty_time[4]['duty_time'] =   'Friday:&nbsp&nbsp'.$duty->fri_s .' - '.$duty->fri_e ;
+                     $duty_time[5]['time'] =   'Friday:'.$duty->fri_s .' - '.$duty->fri_e ;
+                }else{
+                    $duty_time[5]['time'] = '';
                 }
+
                 if($duty->sat_s){
-                     $duty_time[5]['duty_time'] =   'Saturday:&nbsp&nbsp'.$duty->sat_s .' - '.$duty->sat_e ;
+                     $duty_time[6]['time'] =   'Saturday:'.$duty->sat_s .' - '.$duty->sat_e ;
+                }else{
+                    $duty_time[6]['time'] = '';
                 }
-                if($duty->sun_s){
-                     $duty_time[6]['duty_time'] =   'Sunday:&nbsp&nbsp'.$duty->sun_s .' - '.$duty->sun_e ;
-                }
-                $doctor_dutytime['id'] = $doctors[$i]['id'];
-                $doctor_dutytime[''] = $duty_time;
+                // if($doctors[$i]['id'] == 2){
+                //     return $duty_time;
+                // }
+                
+                
+                $doctor_dutytime[] = [
+                        'id' => $doctors[$i]['id'],
+                        'duty_time' => $duty_time
+                ];
                 
         }
        

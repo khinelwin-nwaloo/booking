@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <?php 
 function create_time_range($start, $end, $interval = '30 mins', $format = '12') {
   $startTime = strtotime($start); 
@@ -46,18 +45,20 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
 
            <center>
             <div>
-    @if(session ('success'))
+    <?php if(session ('success')): ?>
       <div id="successMessage" class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ session('success') }}
+        <?php echo e(session('success')); ?>
+
     </div>
-    @endif
-    @if(session ('fail'))
+    <?php endif; ?>
+    <?php if(session ('fail')): ?>
     <div id="successMessage" class="alert alert-danger">
        <button type="button" class="btm btn-primary" data-dismiss="alert">×</button>
-       {{ session('fail') }}
+       <?php echo e(session('fail')); ?>
+
    </div>
-   @endif
+   <?php endif; ?>
 </div>
             <p class="text-warning" style="font-size:20px"> 
               <!-- Appoinment is already Full. -->
@@ -67,63 +68,64 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
               </h1>
             </center>
             <form class="form-horizontal" method="post" 
-            action="{{ route('appointments.store') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            action="<?php echo e(route('appointments.store')); ?>" enctype="multipart/form-data">
+            <?php echo e(csrf_field()); ?>
 
-            <input type="hidden" name="patient_id" value="{{$user->id}}"> 
 
-            <div class="form-group  {{ $errors->has('department_id') ? ' has-error' : '' }}">
-              <label for="department_id" >{{ __('Departmemnt') }}</label>
+            <input type="hidden" name="patient_id" value="<?php echo e($user->id); ?>"> 
+
+            <div class="form-group  <?php echo e($errors->has('department_id') ? ' has-error' : ''); ?>">
+              <label for="department_id" ><?php echo e(__('Departmemnt')); ?></label>
               <select name="department_id" id="category" class="form-control selectpicker"> 
                 <option value="" selected>Select Department</option >
-                @foreach($departments as $department)
-                <option value="{{$department->id}}">{{$department->name}}</option>
-                @endforeach
+                <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <option value="<?php echo e($department->id); ?>"><?php echo e($department->name); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </select>
-              @if ($errors->has('department_id'))            
+              <?php if($errors->has('department_id')): ?>            
               <span class="help-block">
-                <strong>{{ $errors->first('department_id') }}</strong>
+                <strong><?php echo e($errors->first('department_id')); ?></strong>
               </span>
-              @endif   
+              <?php endif; ?>   
             </div>
 
-            <div class="form-group  {{ $errors->has('doctor_id') ? ' has-error' : '' }}">
-              <label for="doctor_id" >{{ __('Doctor') }}</label>
+            <div class="form-group  <?php echo e($errors->has('doctor_id') ? ' has-error' : ''); ?>">
+              <label for="doctor_id" ><?php echo e(__('Doctor')); ?></label>
               <select name="doctor_id" id="category_doctor" class="form-control selectpicker"> 
                 <option value="" selected>Select Doctor</option >
 
               </select>
-              @if ($errors->has('doctor_id'))            
+              <?php if($errors->has('doctor_id')): ?>            
               <span class="help-block">
-                <strong>{{ $errors->first('doctor_id') }}</strong>
+                <strong><?php echo e($errors->first('doctor_id')); ?></strong>
               </span>
-              @endif   
+              <?php endif; ?>   
             </div>
 
-            <div class="form-group  {{ $errors->has('duties') ? ' has-error' : '' }}">
-              <label for="duties" >{{ __('Duties Time') }}</label>
+            <div class="form-group  <?php echo e($errors->has('duties') ? ' has-error' : ''); ?>">
+              <label for="duties" ><?php echo e(__('Duties Time')); ?></label>
               <select name="duties" id="duties" class="form-control selectpicker"> 
                 <option value="" selected>Select Time</option >
 
               </select>
-              @if ($errors->has('duties'))            
+              <?php if($errors->has('duties')): ?>            
               <span class="help-block">
-                <strong>{{ $errors->first('duties') }}</strong>
+                <strong><?php echo e($errors->first('duties')); ?></strong>
               </span>
-              @endif   
+              <?php endif; ?>   
             </div>
 
-            <div class="form-group  {{ $errors->has('appointment_date') ? ' has-error' : '' }}">
-              <label for="duties" >{{ __('Appointment Date') }}</label>
+            <div class="form-group  <?php echo e($errors->has('appointment_date') ? ' has-error' : ''); ?>">
+              <label for="duties" ><?php echo e(__('Appointment Date')); ?></label>
               <div class="input-group">
-                <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="{{ old('appointment_date') }}" placeholder="Appointment date" autocomplete="off">
+                <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e(old('appointment_date')); ?>" placeholder="Appointment date" autocomplete="off">
                 <span class="input-group-addon">
                   <i class="fa fa-calendar bigger-110"></i>
                 </span>
               </div> 
             </div>
-            <div class="form-group  {{ $errors->has('reason') ? ' has-error' : '' }}">
-              <label for="reason" >{{ __('Reason') }}</label>
+            <div class="form-group  <?php echo e($errors->has('reason') ? ' has-error' : ''); ?>">
+              <label for="reason" ><?php echo e(__('Reason')); ?></label>
               <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
                 <option value="" selected>Select Reason</option >
                 <option value="1" >New Appoinment</option >
@@ -131,29 +133,29 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
                 <option value="3" >Consulting</option >
 
               </select>
-              @if ($errors->has('reason'))            
+              <?php if($errors->has('reason')): ?>            
               <span class="help-block">
-                <strong>{{ $errors->first('reason') }}</strong>
+                <strong><?php echo e($errors->first('reason')); ?></strong>
               </span>
-              @endif   
+              <?php endif; ?>   
             </div>
 
-            <div class="form-group  {{ $errors->has('remark') ? ' has-error' : '' }}">
-              <label for="remark" >{{ __('Remark') }}</label>
+            <div class="form-group  <?php echo e($errors->has('remark') ? ' has-error' : ''); ?>">
+              <label for="remark" ><?php echo e(__('Remark')); ?></label>
               <textarea name="remark" id="remark" style="width:100%;border-radius:3px;">
               </textarea>
-              @if ($errors->has('remark'))            
+              <?php if($errors->has('remark')): ?>            
               <span class="help-block">
-                <strong>{{ $errors->first('remark') }}</strong>
+                <strong><?php echo e($errors->first('remark')); ?></strong>
               </span>
-              @endif   
+              <?php endif; ?>   
             </div>
 
 
             <div class="form-group">
 
                 <button type="submit" align ="center" class="btn btn-primary">Appointment</button>
-                <a href="{{url('/doctors')}}" align ="center" class="btn btn-primary">Cancel</a>
+                <a href="<?php echo e(url('/doctors')); ?>" align ="center" class="btn btn-primary">Cancel</a>
               </form>
             </div>
           </div>
@@ -162,8 +164,8 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
     </div>
   </section>
 
-  @endsection
-  @section('js')
+  <?php $__env->stopSection(); ?>
+  <?php $__env->startSection('js'); ?>
 
   <script type="text/javascript">
 
@@ -287,4 +289,5 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
     });
   </script>
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/appointments/create.blade.php ENDPATH**/ ?>

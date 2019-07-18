@@ -62,7 +62,9 @@
              <th width="35%" style=" word-wrap:break-word;  word-break:break-all;     
     overflow-wrap: break-all;">{{ $doctor->degree }}</th>
              <th width="20%" >{{ $doctor->department->name }}</th>
-             <th width="30%"></th>
+             <th width="30%">
+                 
+             </th>
          </tr>
      </tbody>
      @endforeach

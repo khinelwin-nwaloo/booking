@@ -39,7 +39,7 @@
                     <li class="{{Request::is('about')?'active':''}}"><a href="{{url('/about')}}">About</a></li>
                     <li class="{{Request::is('service')?'active':''}}"><a href="{{url('/service')}}">Services</a></li>
                     <li class="{{Request::is('doctor')?'active':''}}"><a href="{{url('/doctor')}}">Doctors</a></li>
-                    <li class="{{Request::is('department')?'active':''}}"><a href="{{url('/department')}}">Departments</a></li>
+                    <!-- <li class="{{Request::is('department')?'active':''}}"><a href="{{url('/department')}}">Departments</a></li> -->
                     <li class="{{Request::is('contact')?'active':''}}"><a href="{{url('/contact')}}" >Contact Us</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->

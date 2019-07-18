@@ -40,7 +40,7 @@
                     <li class="<?php echo e(Request::is('about')?'active':''); ?>"><a href="<?php echo e(url('/about')); ?>">About</a></li>
                     <li class="<?php echo e(Request::is('service')?'active':''); ?>"><a href="<?php echo e(url('/service')); ?>">Services</a></li>
                     <li class="<?php echo e(Request::is('doctor')?'active':''); ?>"><a href="<?php echo e(url('/doctor')); ?>">Doctors</a></li>
-                    <li class="<?php echo e(Request::is('department')?'active':''); ?>"><a href="<?php echo e(url('/department')); ?>">Departments</a></li>
+                    <!-- <li class="<?php echo e(Request::is('department')?'active':''); ?>"><a href="<?php echo e(url('/department')); ?>">Departments</a></li> -->
                     <li class="<?php echo e(Request::is('contact')?'active':''); ?>"><a href="<?php echo e(url('/contact')); ?>" >Contact Us</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->

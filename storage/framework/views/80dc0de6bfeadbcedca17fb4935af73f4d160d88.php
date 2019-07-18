@@ -63,7 +63,9 @@
              <th width="35%" style=" word-wrap:break-word;  word-break:break-all;     
     overflow-wrap: break-all;"><?php echo e($doctor->degree); ?></th>
              <th width="20%" ><?php echo e($doctor->department->name); ?></th>
-             <th width="30%"></th>
+             <th width="30%">
+                 
+             </th>
          </tr>
      </tbody>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

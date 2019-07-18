@@ -1,24 +1,24 @@
 <?php $__env->startSection('content'); ?>
 
-    <!-- start banner Area -->
-    <section class="banner-area relative" id="home">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row fullscreen d-flex align-items-center justify-content-center">
-                <div class="banner-content col-lg-8 col-md-12">
-                    <h1>
-                        One of the best hospitals in
-                        Myanmar
-                    </h1>
-                    <p class="pt-10 pb-10 text-white">
-                        Ziiwaka Medical Center is a private hospital providing multidisciplinary medical care survive with international health care standards .
-                    </p>
-                    <a href="<?php echo e(url('/login')); ?>" class="primary-btn text-uppercase">Book An Appointment</a>
-                    
-                </div>
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <div class="banner-content col-lg-8 col-md-12">
+                <h1>
+                    One of the best hospitals in
+                    Myanmar
+                </h1>
+                <p class="pt-10 pb-10 text-white">
+                    Ziiwaka Medical Center is a private hospital providing multidisciplinary medical care survive with international health care standards .
+                </p>
+                <a href="<?php echo e(url('/login')); ?>" class="primary-btn text-uppercase">Book An Appointment</a>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- End banner Area 
         Start facilities Area -->
         <section class="facilities-area section-gap">
@@ -103,24 +103,24 @@
                                     <div class="thumb">
                                         <img class="img-fluid" src="assets/img/departments/ICU.jpg" alt="ICU">
                                     </div>
-                                    <a href="#">
+                                    
                                         <h4 class="text-white">Intense Care Unit</h4>
-                                    </a>
+                                    
                                     <p>
-                                         Intensive Care Unit is a special department of OSC Hospital to monitor intensively to the patients who have just finished their operations and the intensive patients who suffer from the chronic diseases. This department is fully facilitated with basic and advanced equipment.  According to the guidelines from the specialist doctors, the doctors from ICU Team and nurses do the best care for the patients who are from Intensive Care Unit. Intensive Care Unit constantly takes care of the conditions of the patients and helps for the requirements. Thus, it is a reliable place to provide good services for the patient who needs to do admission there.
-                                    </p>
+                                       Intensive Care Unit is a special department of OSC Hospital to monitor intensively to the patients who have just finished their operations and the intensive patients who suffer from the chronic diseases. This department is fully facilitated with basic and advanced equipment.  According to the guidelines from the specialist doctors, the doctors from ICU Team and nurses do the best care for the patients who are from Intensive Care Unit. Intensive Care Unit constantly takes care of the conditions of the patients and helps for the requirements. Thus, it is a reliable place to provide good services for the patient who needs to do admission there.
+                                   </p>
+                               </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                            <div class="single-service">
+                                <div class="thumb">
+                                    <img class="img-fluid" src="assets/img/departments/Laboratory.jpg" alt="Lab">
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single-service">
-                                    <div class="thumb">
-                                        <img class="img-fluid" src="assets/img/departments/Laboratory.jpg" alt="Lab">
-                                    </div>
-                                    <a href="#">
-                                        <h4 class="text-white">Laboratory</h4>
-                                    </a>
-                                    <p>
-                                        OSC laboratory provides the definite diagnosis 24 hours daily with modern equipments like Sysmex-C.P. Auto 26 parameter Haematology Machine, Easylyte - Electrolyte Machine & Pentra 200 - Fully Auto Biochemistry Machine. We provide services for -Molecular diagnosis -Biochemistry -Haematology -Immunology -Diagnostic autoimmune, allergy testing -Histopathology -Immunohistochemistry -Cytopathology -Microbiology.
+                                
+                                    <h4 class="text-white">Laboratory</h4>
+                                
+                                <p>
+                                    OSC laboratory provides the definite diagnosis 24 hours daily with modern equipments like Sysmex-C.P. Auto 26 parameter Haematology Machine, Easylyte - Electrolyte Machine & Pentra 200 - Fully Auto Biochemistry Machine. We provide services for -Molecular diagnosis -Biochemistry -Haematology -Immunology -Diagnostic autoimmune, allergy testing -Histopathology -Immunohistochemistry -Cytopathology -Microbiology.
                                 </div>
                             </div>
                         </div>
@@ -130,18 +130,11 @@
                             <div class="overlay overlay-bg"></div>
                             <h3 class="relative text-white">Departments</h3>
                             <ul class="relative dep-list">
-                                <li><a href="#">Cardiologists</a></li>
-                                <li><a href="#">ENT </a></li>
-                                <li><a href="#">General Physicians</a></li>
-                                <li><a href="#">Hepatologist</a></li>
-                                <li><a href="#">Nephrologists</a></li>
-                                <li><a href="#">Obstertricians & Gynaecologists </a></li>
-                                <li><a href="#">Orthopaedeic</a></li>
-                                <li><a href="#">Paediatric Surgeons</a></li>
-                                <li><a href="#">Psychiatrists</a></li>
-                                <li><a href="#">Radiologists</a></li>
+                                <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li><a href="<?php echo e(url('/department/'.$department['id'])); ?>"><?php echo e($department->name); ?></a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
-                            <a class="viewall-btn" href="departments.html">View all Department</a>
+                            <a class="viewall-btn" href="<?php echo e(url('/doctor')); ?>">View all Department</a>
                         </div>
                     </div>
                 </div>
@@ -149,7 +142,7 @@
         </section>
         <!-- End offered-service Area -->
         <!-- Start team Area -->
-        <section class="team-area section-gap">
+      <!--   <section class="team-area section-gap">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content pb-70 col-lg-7">
@@ -230,7 +223,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- End team Area -->
         <!-- Start feedback Area -->
         <section class="feedback-area section-gap relative">
@@ -303,6 +296,6 @@
         <!-- End feedback Area -->
 
 
-<?php $__env->stopSection(); ?>
+        <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/home.blade.php ENDPATH**/ ?>

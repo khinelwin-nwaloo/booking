@@ -41,7 +41,7 @@
               {{method_field('DELETE')}}
               {{ csrf_field() }}
               <a data-id="{{$doctor->id}}" class="red btn btn-danger" data-toggle="modal" data-target="#confirmDelete">
-              Delete
+                Delete
               </a>
 
             </form>

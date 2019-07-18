@@ -12,7 +12,7 @@
       <br/>
       <div class="rela-block user-desc" id="user_description">DATE OF BIRTH : {{ $doctor['dob'] }}</div>
       <br/>
-
+      
       <?php
       $gender = $doctor['gender'];
       if($gender == 'Male'){

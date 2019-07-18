@@ -13,7 +13,7 @@
           <th class="th-sm">Phone</th>
           <th class="th-sm">Email </th>
           <th class="th-sm"> Address</th>
-   
+          
         </tr>
       </thead>
       <tbody> 
@@ -27,7 +27,7 @@
           <td>{{ $patient->phone}}</td>
           <td>{{ $patient->email}}</td>
           <td>{{ $patient->address}}</td>
-     
+          
         </tr>
         @endforeach
       </tbody>

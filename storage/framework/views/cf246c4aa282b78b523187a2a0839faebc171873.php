@@ -26,7 +26,6 @@
     <!--  <link rel="stylesheet" href="<?php echo e(url('/assets/css/style1.css')); ?>"> -->
     <link rel="stylesheet" href="<?php echo e(url('/assets/css/custom.css')); ?>">
      <link rel="stylesheet" href="<?php echo e(url('assets/css/ace.min.css')); ?>" class="ace-main-stylesheet" id="main-ace-style')}}" />
-    <link rel="stylesheet" href="<?php echo e(url('/assets/css/sweetalert.css')); ?>">
   </head>
   <body>
     <div id="login">

@@ -6,8 +6,8 @@
                         <div class="single-footer-widget">
                             <h6>Our Services</h6>
                             <ul class="footer-nav">
-                                <li><a href="doctors.html">Doctors</a></li>
-                                <li><a href="departments.html">Departments</a></li>
+                                <li><a href="<?php echo e(url('/doctor')); ?>">Doctors</a></li>
+                                <!-- <li><a href="departments.html">Departments</a></li> -->
                                 <li><a href="contact.html">Emergency</a></li>
                                 <li><a href="contact.html">Hotline</a></li>
                             </ul>

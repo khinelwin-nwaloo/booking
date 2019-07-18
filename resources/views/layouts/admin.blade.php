@@ -33,8 +33,7 @@
     
     <link rel="stylesheet" href="{{url('/assets/css/styles.css')}}">
     <link rel="stylesheet" href="{{url('/assets/css/AdminLTE.min.css')}}">
-<!--    <link rel="stylesheet" href="{{url('/assets/css/sweetalert.css')}}">-->
-    
+   
     @yield('css')
     <!-- ace settings handler -->
     <script src="{{url('assets/js/ace-extra.min.js')}}"></script> 

@@ -11,8 +11,9 @@ class HospitalController extends Controller
 {
 
     public function home()
-    {
-        return view('home');
+    {   
+        $departments = Department::limit(5)->get();
+        return view('home',compact('departments'));
     }
     public function about()
     {

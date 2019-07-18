@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <?php 
- function create_time_range($start, $end, $interval = '30 mins', $format = '12') {
+function create_time_range($start, $end, $interval = '30 mins', $format = '12') {
   $startTime = strtotime($start); 
   $endTime   = strtotime($end);
   $returnTimeFormat = ($format == '12')?'g:i A':'G:i';
@@ -82,7 +82,7 @@
           <button type="submit" align ="center" class="btn btn-primary">Finish</button>
         </button>
 
-        </form>
+      </form>
       @elseif($appoint->status == 3)
       Completed
       @endif

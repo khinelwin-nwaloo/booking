@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="<?php echo e(url('/assets/css/owl.carousel.css')); ?>" type="text/css">
     <!-- text fonts -->
     <link rel="stylesheet" href="<?php echo e(url('/assets/css/linearicons.css')); ?>" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo e(url('/assets/css/magnific-popup.css')); ?>" type="text/css">
+    <!-- <link rel="stylesheet" href="<?php echo e(url('/assets/css/magnific-popup.css')); ?>" type="text/css"> -->
     <link rel="stylesheet" href="<?php echo e(url('/assets/css/jquery.datetimepicker.min.css')); ?>" type="text/css">
 
     <link rel="stylesheet" href="<?php echo e(url('/assets/css/animate.min.css')); ?>" type="text/css"/>
     <link rel='stylesheet' href="<?php echo e(url('/assets/css/main.css')); ?>" type="text/css" />
-
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/ace-rtl.min.css')); ?>" />
 
   </head>
 
@@ -57,7 +57,6 @@
    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.datetimepicker.min.js')); ?>"></script>
    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.datetimepicker.full.js')); ?>"></script>
    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.datetimepicker.full.min.js')); ?>"></script>
-   <link rel="stylesheet" href="<?php echo e(url('assets/css/ace-rtl.min.css')); ?>" />
    <script type="text/javascript" src="<?php echo e(url('assets/js/jquery.nice-select.min.js')); ?>"></script>
    <script type="text/javascript" src="<?php echo e(url('assets/js/owl.carousel.min.js')); ?>">  </script>
    <script type="text/javascript" src="<?php echo e(url('assets/js/mail-script.js')); ?>">  </script>

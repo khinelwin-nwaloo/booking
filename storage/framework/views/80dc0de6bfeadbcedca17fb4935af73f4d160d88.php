@@ -51,12 +51,12 @@
                  </th>
              </tr>
          </thead>
-         <?php $num = 1 ; ?>
+         <?php $num = 1 ; $count = count($doctor_dutytime); ?>
          <?php $__currentLoopData = $doctors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doctor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          <tbody>
             <tr> 
              <th scope="row" width="5%">
-                <?php echo e($num++); ?>
+                <?php echo e($num++); ?> <?php echo e($doctor->id); ?>
 
              </th>
              <th width="10%"><?php echo e($doctor->name); ?></th>
@@ -64,7 +64,7 @@
     overflow-wrap: break-all;"><?php echo e($doctor->degree); ?></th>
              <th width="20%" ><?php echo e($doctor->department->name); ?></th>
              <th width="30%">
-                 
+              
              </th>
          </tr>
      </tbody>

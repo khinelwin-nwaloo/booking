@@ -51,19 +51,19 @@
                  </th>
              </tr>
          </thead>
-         <?php $num = 1 ; ?>
+         <?php $num = 1 ; $count = count($doctor_dutytime); ?>
          @foreach($doctors as $doctor )
          <tbody>
             <tr> 
              <th scope="row" width="5%">
-                {{ $num++ }}
+                {{ $num++ }} {{ $doctor->id }}
              </th>
              <th width="10%">{{ $doctor->name }}</th>
              <th width="35%" style=" word-wrap:break-word;  word-break:break-all;     
     overflow-wrap: break-all;">{{ $doctor->degree }}</th>
              <th width="20%" >{{ $doctor->department->name }}</th>
              <th width="30%">
-                 
+              
              </th>
          </tr>
      </tbody>

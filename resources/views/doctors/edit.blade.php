@@ -2,18 +2,7 @@
 @section('content')
 <div class="page-content" id="video_page">
   <div class="row">
-    @if(session ('success'))
-    <div id="successMessage" class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      {{ session('success') }}
-    </div>
-    @endif
-    @if(session ('fail'))
-    <div id="successMessage" class="alert alert-danger">
-     <button type="button" class="close" data-dismiss="alert">×</button>
-     {{ session('fail') }}
-   </div>
-   @endif
+    
    <div class="col-md-3"> </div>
    <div class="col-md-6"> 
 
@@ -25,37 +14,50 @@
      <form class="form-horizontal" method="post" action="{{url('/doctors/'.$doctor_info['id'])}}" enctype="multipart/form-data">
       {{ csrf_field() }}
       {{ method_field('PUT') }}
-      
-      <div class="form-group  {{ $errors->has('old_password') ? ' has-error' : '' }}">
-        <label for="old_password" >{{ __('Old Password') }}</label>
-        <input id="old_password" type="password" class="form-control" name="old_password" placeholder="Password" autocomplete="password">
-
-        @if ($errors->has('old_password'))            
-        <span class="help-block">
-          <strong>{{ $errors->first('old_password') }}</strong>
-        </span>
-        @endif  
+      @if(session ('success'))
+      <div id="successMessage" class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session('success') }}
       </div>
+      @endif
+      @if(session ('fail'))
+      <div id="successMessage" class="alert alert-danger">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+       {{ session('fail') }}
+     </div>
+     @endif
+     <div class="form-group  {{ $errors->has('old_password') ? ' has-error' : '' }}">
+      <label for="old_password" >{{ __('Old Password') }}</label>
+      <input id="old_password" type="password" class="form-control" name="old_password" placeholder="Password" autocomplete="password">
 
-      <div class="form-group  {{ $errors->has('password') ? ' has-error' : '' }}">
-        <label for="password" >{{ __('Password') }}</label>
-        <input id="password" type="password" class="form-control" name="password" placeholder="Password" autocomplete="password">
+      @if ($errors->has('old_password'))            
+      <span class="help-block">
+        <strong>{{ $errors->first('old_password') }}</strong>
+      </span>
+      @endif  
+    </div>
 
-        @if ($errors->has('password'))            
-        <span class="help-block">
-          <strong>{{ $errors->first('password') }}</strong>
-        </span>
-        @endif  
-      </div>
-      <div class="form-group">
-        <label for="password-confirm" >{{ __('Confrim Password') }}</label>
+    <div class="form-group  {{ $errors->has('password') ? ' has-error' : '' }}">
+      <label for="password" >{{ __('Password') }}</label>
+      <input id="password" type="password" class="form-control" name="password" placeholder="Password" autocomplete="password">
 
-        <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+      @if ($errors->has('password'))            
+      <span class="help-block">
+        <strong>{{ $errors->first('password') }}</strong>
+      </span>
+      @endif  
+    </div>
+    <div class="form-group">
+      <label for="password-confirm" >{{ __('Confrim Password') }}</label>
 
-      </div>
+      <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
-      @else
+    </div>
 
+    @else
+    <form class="form-horizontal" method="post" action="{{url('/doctors/'.$doctor_info['id'])}}" enctype="multipart/form-data">
+      {{ csrf_field() }}
+      {{ method_field('PUT') }}
       <h2>Edit Doctor' Information</h2>
       <input type="hidden" name="admin_id" value="{{$doctor_info->admin_id}}">    
       <input type="hidden" name="role_id" value="{{$doctor_info->role_id}}">   
@@ -162,7 +164,7 @@
           @endif  
         </div>
         @endif
-        <button type="submit" align ="center" class="btn btn-primary">Save</button>
+        <button type="submit" align ="center" class="btn btn-primary">Update</button>
         <a href="{{url('/doctors')}}" align ="center" class="btn btn-primary">Cancel</a>
       </form>
     </div>

@@ -9,6 +9,7 @@ use App\Department;
 use App\Doctor;
 use App\Appointment;
 use Session;
+
     class PatientController extends Controller
     {
     /**
@@ -32,7 +33,7 @@ use Session;
             $old_password =Crypt::Decrypt($patient->password);
             if($password == $old_password){
                 Session::put('user', $patient);
-                return redirect('/patient/history')->with('success', 'You are successfully logged in!');
+                return redirect('/home')->with('success', 'You are successfully logged in!');
             }else{
                 return redirect('/login')->with('fail', 'Invalid Email and Password!');
             }
@@ -61,10 +62,12 @@ use Session;
     }
     public function index()
     {
-        $now = Carbon::now()->toDateTimeString();
-        $patients_id = Appointment::groupBy('patient_id')->select('patient_id')->get();
-       
-        $patients = Patient::whereIn('id',$patients_id)->get();
+        // show appointment patient
+        // $now = Carbon::now()->toDateTimeString();
+        // $patients_id = Appointment::groupBy('patient_id')->select('patient_id')->get();
+        // $patients = Patient::whereIn('id',$patients_id)->get();
+
+        $patients = Patient::get();
 
         return view('patient.index',compact('patients'));
     }

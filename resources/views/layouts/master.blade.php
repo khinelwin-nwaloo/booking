@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-  <title>Welcome To Ziiwaka Hospital</title>
+  <title>Hospital Booking</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="{{url('/assets/css/owl.carousel.css')}}" type="text/css">
     <!-- text fonts -->
     <link rel="stylesheet" href="{{url('/assets/css/linearicons.css')}}" type="text/css"/>
-    <!-- <link rel="stylesheet" href="{{url('/assets/css/magnific-popup.css')}}" type="text/css"> -->
+    <link rel="stylesheet" href="{{url('/assets/css/magnific-popup.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('/assets/css/jquery.datetimepicker.min.css')}}" type="text/css">
 
     <link rel="stylesheet" href="{{url('/assets/css/animate.min.css')}}" type="text/css"/>
     <link rel='stylesheet' href="{{url('/assets/css/main.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{url('assets/css/ace-rtl.min.css')}}" />
+
 
   </head>
 
@@ -57,6 +57,7 @@
    <script type="text/javascript" src="{{url('assets/js/jquery.datetimepicker.min.js')}}"></script>
    <script type="text/javascript" src="{{url('assets/js/jquery.datetimepicker.full.js')}}"></script>
    <script type="text/javascript" src="{{url('assets/js/jquery.datetimepicker.full.min.js')}}"></script>
+   <link rel="stylesheet" href="{{url('assets/css/ace-rtl.min.css')}}" />
    <script type="text/javascript" src="{{url('assets/js/jquery.nice-select.min.js')}}"></script>
    <script type="text/javascript" src="{{url('assets/js/owl.carousel.min.js')}}">  </script>
    <script type="text/javascript" src="{{url('assets/js/mail-script.js')}}">  </script>

@@ -27,8 +27,10 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           <th class="th-sm">Name </th>
           <th class="th-sm">Doctor's Name </th>
           <th class="th-sm">Department </th>
-          <th class="th-sm">Date </th>
-          <th class="th-sm">Status </th>
+          <th class="th-sm">Appointment Date </th>
+          <th class="th-sm">Appointment Time</th>
+          <th class="th-sm">Reason</th>
+          <th class="th-sm">Remark</th>
           <th> </th>
         </tr>
       </thead>
@@ -42,7 +44,9 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           <td>{{ $appoint->doctor->name}}</td>
           <td>{{ $appoint->department->name}}</td>
           <td>{{ $appoint->appointment_date}}</td>
-          <td>{{ $appoint->status}}</td>
+          <td>{{ $appoint->appointment_time}}</td>
+          <td>{{ $appoint->reason}}</td>
+          <td>{{ $appoint->remarks}}</td>
           <td align="center">
             @if($user->role_id == 2 ) <!-- doctor -->
             @if($appoint->status == 1 )

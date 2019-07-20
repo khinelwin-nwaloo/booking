@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+
+
+<div class="signupContainer">
+  <div class="row">
   @if(session ('success'))
   <div id="successMessage" class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -15,8 +18,6 @@
  </div>
  @endif
 </div>
-
-<div class="signupContainer" >
   <h1 align="center">Ziiwaka Clinic</h1>
   <form class="form-horizontal" method="POST" action="{{ url('loginpatient') }}">
     {{ csrf_field() }}

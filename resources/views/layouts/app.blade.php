@@ -15,7 +15,7 @@
       ]) !!}
       ;
     </script>
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/logo/fav.ico')}}"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/logo/fav.ico')}}">
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{url('/assets/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{url('/assets/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
@@ -25,6 +25,7 @@
     <!--  <link rel="stylesheet" href="{{url('/assets/css/style1.css')}}"> -->
     <link rel="stylesheet" href="{{url('/assets/css/custom.css')}}">
      <link rel="stylesheet" href="{{url('assets/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style')}}" />
+    <link rel="stylesheet" href="{{url('/assets/css/sweetalert.css')}}">
   </head>
   <body>
     <div id="login">

@@ -1,5 +1,16 @@
 @extends('layouts.master')
 @section('content')
+<style type="text/css">
+  
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+</style>
 <section class="banner-area relative about-banner" id="home">
   <div class="overlay overlay-bg"></div>
   <div class="container">
@@ -25,7 +36,7 @@
 
           @if ($errors->has('name'))            
           <span class="help-block">
-            <strong>{{ $errors->first('name') }}</strong>
+            <strong style="color:red;">{{ $errors->first('name') }}</strong>
           </span>
           @endif    
         </div>
@@ -40,11 +51,11 @@
       </div>
       <div class="form-group  {{ $errors->has('age') ? ' has-error' : '' }}">
         <label for="age" >{{ __('Age') }}</label>
-        <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" placeholder="Age" nu autocomplete="age">
+        <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" placeholder="Age" autocomplete="age">
 
         @if ($errors->has('age'))            
         <span class="help-block">
-          <strong>{{ $errors->first('age') }}</strong>
+          <strong style="color:red;">{{ $errors->first('age') }}</strong>
         </span>
         @endif  
       </div>
@@ -54,18 +65,20 @@
 
         @if ($errors->has('email'))            
         <span class="help-block">
-          <strong>{{ $errors->first('email') }}</strong>
+          <strong style="color:red;">{{ $errors->first('email') }}</strong>
         </span>
         @endif  
       </div>
 
       <div class="form-group  {{ $errors->has('password') ? ' has-error' : '' }}">
         <label for="password" >{{ __('Password') }}</label>
+        <p style="color: red;">Passwords must have mininum 8, at least 1 number,1 Uppercase letter,1 lowercase letter and 1 special character(#?!@$%^&*-).
+ </p>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="Password" autocomplete="password">
 
         @if ($errors->has('password'))            
         <span class="help-block">
-          <strong>{{ $errors->first('password') }}</strong>
+          <strong style="color:red;">{{ $errors->first('password') }}</strong>
         </span>
         @endif  
       </div>
@@ -79,23 +92,22 @@
 
      <div class="form-group  {{ $errors->has('phone_number') ? ' has-error' : '' }}">
       <label for="phone_number" >{{ __('Phone Number') }}</label>
-      <input id="phone_number" type="number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" placeholder="Phone Number" nu autocomplete="phone_number">
+      <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" placeholder="Phone Number" nu autocomplete="phone_number">
 
       @if ($errors->has('phone_number'))            
       <span class="help-block">
-        <strong>{{ $errors->first('phone_number') }}</strong>
+        <strong style="color:red;">{{ $errors->first('phone_number') }}</strong>
       </span>
       @endif  
     </div>
 
     <div class="form-group  {{ $errors->has('address') ? ' has-error' : '' }}">
       <label for="address" >{{ __('Address') }}</label>
-      <textarea id="address"  class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" placeholder="Address" autocomplete="address">
-      </textarea>
+      <textarea id="address"  class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" placeholder="Address" autocomplete="address"></textarea>
 
       @if ($errors->has('address'))            
       <span class="help-block">
-        <strong>{{ $errors->first('address') }}</strong>
+        <strong style="color:red;">{{ $errors->first('address') }}</strong>
       </span>
       @endif  
     </div>

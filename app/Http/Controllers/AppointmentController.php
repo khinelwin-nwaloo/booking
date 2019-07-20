@@ -74,7 +74,7 @@ class AppointmentController extends Controller
         $appoint_count = Appointment::where('doctor_id',$doctor_id)
         ->where('appointment_date',$appointment_date)->count();
 
-        if($appoint_count < 30){
+        if($appoint_count < 0){
             $department_id = $request->get('department_id');
             $patient_id = $request->get('patient_id');
             $appointment_time = $request->get('duties');
@@ -91,7 +91,7 @@ class AppointmentController extends Controller
             $appointment->patient_id = $patient_id;
             
             $appointment->save();
-            return redirect('/patient/history')->with('success', 'Appointment has been added');
+            return redirect('/patient/history')->with('success', 'Appointment has been added successfully');
         }else{
             return redirect('/appointments/create')->with('fail', 'Appointment is already full');
             

@@ -26,13 +26,14 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
   <div class="overlay overlay-bg"></div>
   <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
-      <div class="about-content col-lg-12">
-        <h1 class="text-white">
-          Book An Appointment
-        </h1>
-      </div>
+      
+     <div class="about-content col-lg-12">
+      <h1 class="text-white">
+        Book An Appointment
+      </h1>
     </div>
   </div>
+</div>
 </section>
 <!-- End banner Area -->
 <!-- Start team Area -->
@@ -43,7 +44,7 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
       <div class="menu-content pb-70 col-lg-7">
         <div class="card uper">
           <div class="card-header">
-            
+
            <center>
             <div>
               @if(session ('success'))
@@ -82,7 +83,7 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           </select>
           @if ($errors->has('department_id'))            
           <span class="help-block">
-            <strong>{{ $errors->first('department_id') }}</strong>
+            <strong style="color: red;">{{ $errors->first('department_id') }}</strong>
           </span>
           @endif   
         </div>
@@ -95,7 +96,7 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           </select>
           @if ($errors->has('doctor_id'))            
           <span class="help-block">
-            <strong>{{ $errors->first('doctor_id') }}</strong>
+            <strong style="color: red;">{{ $errors->first('doctor_id') }}</strong>
           </span>
           @endif   
         </div>
@@ -108,7 +109,7 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           </select>
           @if ($errors->has('duties'))            
           <span class="help-block">
-            <strong>{{ $errors->first('duties') }}</strong>
+            <strong style="color: red;">{{ $errors->first('duties') }}</strong>
           </span>
           @endif   
         </div>
@@ -121,6 +122,11 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
               <i class="fa fa-calendar bigger-110"></i>
             </span>
           </div> 
+          @if ($errors->has('appointment_date'))            
+          <span class="help-block">
+            <strong style="color: red;">{{ $errors->first('appointment_date') }}</strong>
+          </span>
+          @endif 
         </div>
         <div class="form-group  {{ $errors->has('reason') ? ' has-error' : '' }}">
           <label for="reason" >{{ __('Reason') }}</label>
@@ -133,18 +139,17 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           </select>
           @if ($errors->has('reason'))            
           <span class="help-block">
-            <strong>{{ $errors->first('reason') }}</strong>
+            <strong style="color: red;">{{ $errors->first('reason') }}</strong>
           </span>
           @endif   
         </div>
 
         <div class="form-group  {{ $errors->has('remark') ? ' has-error' : '' }}">
           <label for="remark" >{{ __('Remark') }}</label>
-          <textarea name="remark" id="remark" style="width:100%;border-radius:3px;">
-          </textarea>
+          <textarea name="remark" id="remark" style="width:100%;border-radius:3px;"></textarea>
           @if ($errors->has('remark'))            
           <span class="help-block">
-            <strong>{{ $errors->first('remark') }}</strong>
+            <strong style="color: red;">{{ $errors->first('remark') }}</strong>
           </span>
           @endif   
         </div>
@@ -234,42 +239,41 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
         var duty_time = [];
 
         if(duties[0]['mon_s']){
-          duty_time[0] = 'Monday:&nbsp&nbsp' +duties[0]['mon_s'] +' - '+duties[0]['mon_e'] ;
+          duty_time[0] = 'Monday:' +duties[0]['mon_s'] +' - '+duties[0]['mon_e'] ;
         }else{
           duty_time[0] = '';
         }
         if(duties[0]['tue_s']){
-          duty_time[1] = 'Tueday:&nbsp&nbsp'+duties[0]['tue_s'] +' - '+duties[0]['tue_e'] ;
+          duty_time[1] = 'Tueday:'+duties[0]['tue_s'] +' - '+duties[0]['tue_e'] ;
         }else{
           duty_time[1] = '';
         }
         if(duties[0]['wed_s']){
-          duty_time[2] = 'Wednesday:&nbsp&nbsp'+duties[0]['wed_s'] +' - '+duties[0]['wed_e'] ;
+          duty_time[2] = 'Wednesday:'+duties[0]['wed_s'] +' - '+duties[0]['wed_e'] ;
         }else{
           duty_time[2] = '';
         }
         if(duties[0]['thu_s']){
-          duty_time[3] = 'Thursday:&nbsp&nbsp'+duties[0]['thu_s'] +' - '+duties[0]['thu_e'] ;
+          duty_time[3] = 'Thursday:'+duties[0]['thu_s'] +' - '+duties[0]['thu_e'] ;
         }else{
           duty_time[3] = '';
         }
         if(duties[0]['fri_s']){
-          duty_time[4] = 'Friday:&nbsp&nbsp'+duties[0]['fri_s'] +' - '+duties[0]['fri_e'] ;
+          duty_time[4] = 'Friday:'+duties[0]['fri_s'] +' - '+duties[0]['fri_e'] ;
         }else{
           duty_time[4] = '';
         }
         if(duties[0]['sat_s']){
-         duty_time[5] = 'Saturday:&nbsp&nbsp'+duties[0]['sat_s'] +' - '+duties[0]['sat_e'] ;
+         duty_time[5] = 'Saturday:'+duties[0]['sat_s'] +' - '+duties[0]['sat_e'] ;
        }else{
         duty_time[5] = '';
       }
       if(duties[0]['sun_s']){
-        duty_time[6] = 'Sun:&nbsp&nbsp'+duties[0]['sun_s'] +' - '+duties[0]['sun_e'] ;
+        duty_time[6] = 'Sun:'+duties[0]['sun_s'] +' - '+duties[0]['sun_e'] ;
       }else{
         duty_time[6] = '';
       }
 
-      console.log(duty_time);
 
       for(var i=0 ; i < 7 ; i++){
 

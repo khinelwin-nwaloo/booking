@@ -330,7 +330,7 @@
   </div>
 </div>
 <br><br>
-<center> <button type="submit" align ="center" class="btn btn-primary">Save</button>
+<center> <button type="submit" align ="center" class="btn btn-primary">Add</button>
   <a href="{{url('/doctors')}}" align ="center" class="btn btn-primary">Cancel</a>
 </center>
 </form>

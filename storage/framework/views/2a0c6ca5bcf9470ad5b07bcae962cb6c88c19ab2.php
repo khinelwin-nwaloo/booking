@@ -42,143 +42,143 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
       <div class="menu-content pb-70 col-lg-7">
         <div class="card uper">
           <div class="card-header">
-
+            
            <center>
             <div>
-    <?php if(session ('success')): ?>
-      <div id="successMessage" class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php echo e(session('success')); ?>
+              <?php if(session ('success')): ?>
+              <div id="successMessage" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <?php echo e(session('success')); ?>
 
-    </div>
-    <?php endif; ?>
-    <?php if(session ('fail')): ?>
-    <div id="successMessage" class="alert alert-danger">
-       <button type="button" class="btm btn-primary" data-dismiss="alert">×</button>
-       <?php echo e(session('fail')); ?>
+              </div>
+              <?php endif; ?>
+              <?php if(session ('fail')): ?>
+              <div id="successMessage" class="alert alert-danger">
+               <button type="button" class="btm btn-primary" data-dismiss="alert">×</button>
+               <?php echo e(session('fail')); ?>
 
-   </div>
-   <?php endif; ?>
-</div>
-            <p class="text-warning" style="font-size:20px"> 
-              <!-- Appoinment is already Full. -->
-            </p>
-              <h1 class="form-group" style="border-radius: 5px;">
-                Appointment Doctor
-              </h1>
-            </center>
-            <form class="form-horizontal" method="post" 
-            action="<?php echo e(route('appointments.store')); ?>" enctype="multipart/form-data">
-            <?php echo e(csrf_field()); ?>
-
-
-            <input type="hidden" name="patient_id" value="<?php echo e($user->id); ?>"> 
-
-            <div class="form-group  <?php echo e($errors->has('department_id') ? ' has-error' : ''); ?>">
-              <label for="department_id" ><?php echo e(__('Departmemnt')); ?></label>
-              <select name="department_id" id="category" class="form-control selectpicker"> 
-                <option value="" selected>Select Department</option >
-                <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <option value="<?php echo e($department->id); ?>"><?php echo e($department->name); ?></option>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              </select>
-              <?php if($errors->has('department_id')): ?>            
-              <span class="help-block">
-                <strong><?php echo e($errors->first('department_id')); ?></strong>
-              </span>
-              <?php endif; ?>   
-            </div>
-
-            <div class="form-group  <?php echo e($errors->has('doctor_id') ? ' has-error' : ''); ?>">
-              <label for="doctor_id" ><?php echo e(__('Doctor')); ?></label>
-              <select name="doctor_id" id="category_doctor" class="form-control selectpicker"> 
-                <option value="" selected>Select Doctor</option >
-
-              </select>
-              <?php if($errors->has('doctor_id')): ?>            
-              <span class="help-block">
-                <strong><?php echo e($errors->first('doctor_id')); ?></strong>
-              </span>
-              <?php endif; ?>   
-            </div>
-
-            <div class="form-group  <?php echo e($errors->has('duties') ? ' has-error' : ''); ?>">
-              <label for="duties" ><?php echo e(__('Duties Time')); ?></label>
-              <select name="duties" id="duties" class="form-control selectpicker"> 
-                <option value="" selected>Select Time</option >
-
-              </select>
-              <?php if($errors->has('duties')): ?>            
-              <span class="help-block">
-                <strong><?php echo e($errors->first('duties')); ?></strong>
-              </span>
-              <?php endif; ?>   
-            </div>
-
-            <div class="form-group  <?php echo e($errors->has('appointment_date') ? ' has-error' : ''); ?>">
-              <label for="duties" ><?php echo e(__('Appointment Date')); ?></label>
-              <div class="input-group">
-                <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e(old('appointment_date')); ?>" placeholder="Appointment date" autocomplete="off">
-                <span class="input-group-addon">
-                  <i class="fa fa-calendar bigger-110"></i>
-                </span>
-              </div> 
-            </div>
-            <div class="form-group  <?php echo e($errors->has('reason') ? ' has-error' : ''); ?>">
-              <label for="reason" ><?php echo e(__('Reason')); ?></label>
-              <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
-                <option value="" selected>Select Reason</option >
-                <option value="1" >New Appoinment</option >
-                <option value="2" >Old Appoinment</option >
-                <option value="3" >Consulting</option >
-
-              </select>
-              <?php if($errors->has('reason')): ?>            
-              <span class="help-block">
-                <strong><?php echo e($errors->first('reason')); ?></strong>
-              </span>
-              <?php endif; ?>   
-            </div>
-
-            <div class="form-group  <?php echo e($errors->has('remark') ? ' has-error' : ''); ?>">
-              <label for="remark" ><?php echo e(__('Remark')); ?></label>
-              <textarea name="remark" id="remark" style="width:100%;border-radius:3px;">
-              </textarea>
-              <?php if($errors->has('remark')): ?>            
-              <span class="help-block">
-                <strong><?php echo e($errors->first('remark')); ?></strong>
-              </span>
-              <?php endif; ?>   
-            </div>
+             </div>
+             <?php endif; ?>
+           </div>
+           <p class="text-warning" style="font-size:20px"> 
+            <!-- Appoinment is already Full. -->
+          </p>
+          <h1 class="form-group" style="border-radius: 5px;">
+            Appointment Doctor
+          </h1>
+        </center>
+        <form class="form-horizontal" method="post" 
+        action="<?php echo e(route('appointments.store')); ?>" enctype="multipart/form-data">
+        <?php echo e(csrf_field()); ?>
 
 
-            <div class="form-group">
+        <input type="hidden" name="patient_id" value="<?php echo e($user->id); ?>"> 
 
-                <button type="submit" align ="center" class="btn btn-primary">Appointment</button>
-                <a href="<?php echo e(url('/doctors')); ?>" align ="center" class="btn btn-primary">Cancel</a>
-              </form>
-            </div>
-          </div>
+        <div class="form-group  <?php echo e($errors->has('department_id') ? ' has-error' : ''); ?>">
+          <label for="department_id" ><?php echo e(__('Departmemnt')); ?></label>
+          <select name="department_id" id="category" class="form-control selectpicker"> 
+            <option value="" selected>Select Department</option >
+            <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value="<?php echo e($department->id); ?>"><?php echo e($department->name); ?></option>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          </select>
+          <?php if($errors->has('department_id')): ?>            
+          <span class="help-block">
+            <strong><?php echo e($errors->first('department_id')); ?></strong>
+          </span>
+          <?php endif; ?>   
         </div>
+
+        <div class="form-group  <?php echo e($errors->has('doctor_id') ? ' has-error' : ''); ?>">
+          <label for="doctor_id" ><?php echo e(__('Doctor')); ?></label>
+          <select name="doctor_id" id="category_doctor" class="form-control selectpicker"> 
+            <option value="" selected>Select Doctor</option >
+
+          </select>
+          <?php if($errors->has('doctor_id')): ?>            
+          <span class="help-block">
+            <strong><?php echo e($errors->first('doctor_id')); ?></strong>
+          </span>
+          <?php endif; ?>   
+        </div>
+
+        <div class="form-group  <?php echo e($errors->has('duties') ? ' has-error' : ''); ?>">
+          <label for="duties" ><?php echo e(__('Duties Time')); ?></label>
+          <select name="duties" id="duties" class="form-control selectpicker"> 
+            <option value="" selected>Select Time</option >
+
+          </select>
+          <?php if($errors->has('duties')): ?>            
+          <span class="help-block">
+            <strong><?php echo e($errors->first('duties')); ?></strong>
+          </span>
+          <?php endif; ?>   
+        </div>
+
+        <div class="form-group  <?php echo e($errors->has('appointment_date') ? ' has-error' : ''); ?>">
+          <label for="duties" ><?php echo e(__('Appointment Date')); ?></label>
+          <div class="input-group">
+            <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e(old('appointment_date')); ?>" placeholder="Appointment date" autocomplete="off">
+            <span class="input-group-addon">
+              <i class="fa fa-calendar bigger-110"></i>
+            </span>
+          </div> 
+        </div>
+        <div class="form-group  <?php echo e($errors->has('reason') ? ' has-error' : ''); ?>">
+          <label for="reason" ><?php echo e(__('Reason')); ?></label>
+          <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
+            <option value="" selected>Select Reason</option >
+            <option value="New Appoinment" >New Appoinment</option >
+            <option value="Old Appoinment" >Old Appoinment</option >
+            <option value="Consulting" >Consulting</option >
+
+          </select>
+          <?php if($errors->has('reason')): ?>            
+          <span class="help-block">
+            <strong><?php echo e($errors->first('reason')); ?></strong>
+          </span>
+          <?php endif; ?>   
+        </div>
+
+        <div class="form-group  <?php echo e($errors->has('remark') ? ' has-error' : ''); ?>">
+          <label for="remark" ><?php echo e(__('Remark')); ?></label>
+          <textarea name="remark" id="remark" style="width:100%;border-radius:3px;">
+          </textarea>
+          <?php if($errors->has('remark')): ?>            
+          <span class="help-block">
+            <strong><?php echo e($errors->first('remark')); ?></strong>
+          </span>
+          <?php endif; ?>   
+        </div>
+
+
+        <div class="form-group">
+
+          <button type="submit" align ="center" class="btn btn-primary">Appointment</button>
+          <a href="<?php echo e(url('/doctors')); ?>" align ="center" class="btn btn-primary">Cancel</a>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+</div>
+</section>
 
-  <?php $__env->stopSection(); ?>
-  <?php $__env->startSection('js'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
 
-  <script type="text/javascript">
+<script type="text/javascript">
 
-    $("#appointment_date").datepicker({ 
-      format: 'yyyy-mm-dd',
-      minDate: -0, 
-      maxDate: '+7d' });
+  $("#appointment_date").datepicker({ 
+    format: 'yyyy-mm-dd',
+    minDate: -0, 
+    maxDate: '+7d' });
 
-    $("#category").on('change',function(e) {
-      var department_id = $(this).val();
-      var pj_name = "/hospital_booking";
-      $.ajax({
-        url: pj_name+'/department/get_doctor',
+  $("#category").on('change',function(e) {
+    var department_id = $(this).val();
+    var pj_name = "/booking";
+    $.ajax({
+      url: pj_name+'/department/get_doctor',
         type: "get", //send it through get method
         data: { 
           id: department_id
@@ -211,14 +211,14 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
      error: function(xhr) {
      }
    });
-    });
+  });
 
 
-    $("#category_doctor").on('change',function(e) {
-      var doctor_id = $(this).val();
-      var pj_name = "/hospital_booking";
-      $.ajax({
-        url: pj_name+'/department/get_duties',
+  $("#category_doctor").on('change',function(e) {
+    var doctor_id = $(this).val();
+    var pj_name = "/hospital_booking";
+    $.ajax({
+      url: pj_name+'/department/get_duties',
         type: "get", //send it through get method
         data: { 
           id: doctor_id
@@ -286,8 +286,8 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
     error: function(xhr) {
     }
   });
-    });
-  </script>
+  });
+</script>
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\booking\resources\views/appointments/create.blade.php ENDPATH**/ ?>

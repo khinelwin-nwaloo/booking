@@ -21,10 +21,10 @@ Route::get('/',function(){
 
 /*For Website*/
 Route::get('/home', 'HospitalController@home');
-Route::get('/doctor', 'HospitalController@doctor');
+Route::get('/department', 'HospitalController@doctor');
 Route::get('/about', 'HospitalController@about');
 Route::get('/service', 'HospitalController@service');
-Route::get('/department', 'HospitalController@department');
+// Route::get('/department', 'HospitalController@department');
 Route::get('/contact', 'HospitalController@contact');
 
 /*For Doctor*/

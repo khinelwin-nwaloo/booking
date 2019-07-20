@@ -134,7 +134,6 @@ class DoctorController extends Controller
     public function update(Request $request,Doctor $doctor)
     {
 
-
     if ($request->has('password')) {
         $this->validate($request, [
          'password' => 'required|min:6|confirmed',
@@ -158,6 +157,7 @@ class DoctorController extends Controller
         return $old_pw;
 
     }else {
+
         $this->validate($request, [
             'name'=>'required',
             'degree'=> 'required',

@@ -1,7 +1,6 @@
 <?php $__env->startSection('content'); ?>
-
-
-<div class="signupContainer">
+<di>
+<div class="signupContainer" style="background-color: white;border-radius:10px;">
   <div class="row">
   <?php if(session ('success')): ?>
   <div id="successMessage" class="alert alert-success">
@@ -18,12 +17,12 @@
  </div>
  <?php endif; ?>
 </div>
-  <h1 align="center">Ziiwaka Clinic</h1>
+  <h1 align="center" style="font-weight: bold;">Ziiwaka Clinic</h1>
   <form class="form-horizontal" method="POST" action="<?php echo e(url('loginpatient')); ?>">
     <?php echo e(csrf_field()); ?>
 
 
-    <div class="<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+    <div align="center" class="<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
       <input id="email" type="email" name="email" value="<?php echo e(old('email')); ?>" placeholder="Email">
       <?php if($errors->has('email')): ?>
       <span class="help-block">
@@ -31,7 +30,7 @@
       </span>
       <?php endif; ?>
     </div>
-    <div class="<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
+    <div align="center" class="<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
       <input id="password" type="password"  name="password" placeholder="Password">
       <?php if($errors->has('password')): ?>
       <span class="help-block">
@@ -40,17 +39,18 @@
       <?php endif; ?>
     </div>
     <br>
-
+    <div align="center" >
     <label align="center"> 
       Don't have an account yet? <a href="<?php echo e(url('register')); ?>">Create an account</a>
     </label>
-
+  </div>
 
     <button type="submit" class="register2">
       Log in
     </button>  <br><br>
 
   </form>
+</div>
 </div>
 <?php $__env->stopSection(); ?>
 

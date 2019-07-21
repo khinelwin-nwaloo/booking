@@ -103,5 +103,13 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
 @endsection
 
 @section('js')
-
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#dtBasicExample').DataTable({
+      "paging": "simple" 
+      // false to disable pagination (or any other option)
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
 @endsection

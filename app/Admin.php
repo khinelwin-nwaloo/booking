@@ -1,10 +1,16 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Admin extends Model
-{
-	protected $table="admins";
+use Illuminate\Notifications\Notifiable;
+
+class Admin extends Model implements Authenticatable
+{	
+	use \Illuminate\Auth\Authenticatable;
+
+    protected $table = 'admins';
+
+    
 }

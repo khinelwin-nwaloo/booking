@@ -108,6 +108,14 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('js'); ?>
-
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#dtBasicExample').DataTable({
+      "paging": "simple" 
+      // false to disable pagination (or any other option)
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\hospital_booking\resources\views/appointments/index.blade.php ENDPATH**/ ?>

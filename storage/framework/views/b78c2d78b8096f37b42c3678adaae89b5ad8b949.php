@@ -42,7 +42,8 @@
    </div>
    <div class="col-md-12">
     <center> 
-      <div class ="header_doctor" >Create Doctor Information </div>
+      <div class ="header_doctor" style="background-color:lightblue;height:50px;
+      font-size:20px;padding-top:10px;" >Create Doctor Information </div>
       <br>
     </center>
     <form class="form-horizontal" method="post" action="<?php echo e(route('doctors.store')); ?>" enctype="multipart/form-data">

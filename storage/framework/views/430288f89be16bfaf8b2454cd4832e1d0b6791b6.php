@@ -94,9 +94,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 offered-left">
                         <h1 class="text-white">Departments in Our Hospital</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
+                    
                         <div class="service-wrap row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-service">
@@ -134,7 +132,7 @@
                                 <li><a href="<?php echo e(url('/department/'.$department['id'])); ?>"><?php echo e($department->name); ?></a></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
-                            <a class="viewall-btn" href="<?php echo e(url('/doctor')); ?>">View all Department</a>
+                            <a class="viewall-btn" href="<?php echo e(url('/department')); ?>">View all Departments</a>
                         </div>
                     </div>
                 </div>

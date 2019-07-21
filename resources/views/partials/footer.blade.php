@@ -6,10 +6,10 @@
                         <div class="single-footer-widget">
                             <h6>Our Services</h6>
                             <ul class="footer-nav">
-                                <li><a href="doctors.html">Doctors</a></li>
-                                <li><a href="departments.html">Departments</a></li>
-                                <li><a href="contact.html">Emergency</a></li>
-                                <li><a href="contact.html">Hotline</a></li>
+                                <li><a href="{{ url('department')}}">Find Doctors</a></li>
+                                <li><a href="{{ url('service')}}">Service</a></li>
+                                <li><a href="{{ url('contact')}}">Emergency</a></li>
+                                <li><a href="{{ url('contact')}}">Hotline</a></li>
                             </ul>
                         </div>
                     </div>

@@ -45,7 +45,6 @@
               <th class="th-sm">Doctor's Name</th>
               <th class="th-sm">Date </th>
               <th class="th-sm">Department</th>
-              <th class="th-sm">Reason</th>
               <th class="th-sm">Remark</th>
               <th></th>
             </tr>
@@ -60,7 +59,6 @@
               <td>{{ $appointment->doctor->name}}</td>
               <td>{{ $appointment->appointment_date}}</td>
               <td>{{ $appointment->department->name}}</td>
-              <td>{{ $appointment->reason }}</td>
               <td>{{ $appointment->remarks }}</td>
               <td align="center">
                 @if($appointment->status == 2)

@@ -14,12 +14,19 @@
                 <p class="pt-10 pb-10 text-white">
                     Ziiwaka Medical Center is a private hospital providing multidisciplinary medical care survive with international health care standards .
                 </p>
-                <a href="{{url('/login')}}" class="primary-btn text-uppercase">Book An Appointment</a>
+                <?php $user = session()->get('user');  ?>
+                @if($user)
+                <a href="{{url('/appointments/create')}}" class="primary-btn text-uppercase">
+                 
+                    @else|
+                    <a href="{{url('/login')}}" class="primary-btn text-uppercase">
+                        @endif
+                    Book An Appointment</a>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <!-- End banner Area 
         Start facilities Area -->
         <section class="facilities-area section-gap">
@@ -95,7 +102,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 offered-left">
                         <h1 class="text-white">Departments in Our Hospital</h1>
-                    
+                        
                         <div class="service-wrap row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-service">
@@ -103,20 +110,20 @@
                                         <img class="img-fluid" src="assets/img/departments/ICU.jpg" alt="ICU">
                                     </div>
                                     
-                                        <h4 class="text-white">Intense Care Unit</h4>
+                                    <h4 class="text-white">Intense Care Unit</h4>
                                     
                                     <p>
-                                       Intensive Care Unit is a special department of OSC Hospital to monitor intensively to the patients who have just finished their operations and the intensive patients who suffer from the chronic diseases. This department is fully facilitated with basic and advanced equipment.  According to the guidelines from the specialist doctors, the doctors from ICU Team and nurses do the best care for the patients who are from Intensive Care Unit. Intensive Care Unit constantly takes care of the conditions of the patients and helps for the requirements. Thus, it is a reliable place to provide good services for the patient who needs to do admission there.
-                                   </p>
-                               </div>
-                           </div>
-                           <div class="col-lg-6 col-md-6">
+                                     Intensive Care Unit is a special department of OSC Hospital to monitor intensively to the patients who have just finished their operations and the intensive patients who suffer from the chronic diseases. This department is fully facilitated with basic and advanced equipment.  According to the guidelines from the specialist doctors, the doctors from ICU Team and nurses do the best care for the patients who are from Intensive Care Unit. Intensive Care Unit constantly takes care of the conditions of the patients and helps for the requirements. Thus, it is a reliable place to provide good services for the patient who needs to do admission there.
+                                 </p>
+                             </div>
+                         </div>
+                         <div class="col-lg-6 col-md-6">
                             <div class="single-service">
                                 <div class="thumb">
                                     <img class="img-fluid" src="assets/img/departments/Laboratory.jpg" alt="Lab">
                                 </div>
                                 
-                                    <h4 class="text-white">Laboratory</h4>
+                                <h4 class="text-white">Laboratory</h4>
                                 
                                 <p>
                                     OSC laboratory provides the definite diagnosis 24 hours daily with modern equipments like Sysmex-C.P. Auto 26 parameter Haematology Machine, Easylyte - Electrolyte Machine & Pentra 200 - Fully Auto Biochemistry Machine. We provide services for -Molecular diagnosis -Biochemistry -Haematology -Immunology -Diagnostic autoimmune, allergy testing -Histopathology -Immunohistochemistry -Cytopathology -Microbiology.

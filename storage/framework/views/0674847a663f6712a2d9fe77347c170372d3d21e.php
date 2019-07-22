@@ -46,7 +46,6 @@
               <th class="th-sm">Doctor's Name</th>
               <th class="th-sm">Date </th>
               <th class="th-sm">Department</th>
-              <th class="th-sm">Reason</th>
               <th class="th-sm">Remark</th>
               <th></th>
             </tr>
@@ -61,7 +60,6 @@
               <td><?php echo e($appointment->doctor->name); ?></td>
               <td><?php echo e($appointment->appointment_date); ?></td>
               <td><?php echo e($appointment->department->name); ?></td>
-              <td><?php echo e($appointment->reason); ?></td>
               <td><?php echo e($appointment->remarks); ?></td>
               <td align="center">
                 <?php if($appointment->status == 2): ?>

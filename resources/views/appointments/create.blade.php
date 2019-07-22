@@ -132,9 +132,9 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
           <label for="reason" >{{ __('Reason') }}</label>
           <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
             <option value="" selected>Select Reason</option >
-            <option value="New Appoinment" >New Appoinment</option >
-            <option value="Old Appoinment" >Old Appoinment</option >
-            <option value="Consulting" >Consulting</option >
+            <option value="New Appointment" >New Appointment</option >
+            <option value="Retake" >Retake</option >
+            <option value="Emergency" >Emergency</option >
 
           </select>
           @if ($errors->has('reason'))            
@@ -230,6 +230,12 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
          var duties = result;
          var count = duties.length;
          var duty_select = $('#duties');
+
+         $(duty_select).empty();
+          duty_select.append(
+            $('<option></option>').html('Select Time')
+            );
+
          if(count == '0'){
           $(duty_select).empty();
           duty_select.append(

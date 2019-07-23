@@ -192,7 +192,12 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
          var doctors = result;
          var count = doctors.length;
          var mySelect = $('#category_doctor');
-         
+         var duty_select = $('#duties');
+         $(duty_select).empty();
+          duty_select.append(
+            $('<option></option>').html('Select Time')
+            );
+    
          if(count == '0'){
           $(mySelect).empty();
           mySelect.append(

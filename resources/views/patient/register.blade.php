@@ -72,8 +72,8 @@ input[type=number]::-webkit-outer-spin-button {
 
       <div class="form-group  {{ $errors->has('password') ? ' has-error' : '' }}">
         <label for="password" >{{ __('Password') }}</label>
-        <p style="color: red;">Passwords must have mininum 8, at least 1 number,1 Uppercase letter,1 lowercase letter and 1 special character(#?!@$%^&*-).
- </p>
+        <p style="color:black;">Passwords must have mininum 8, at least 1 number,1 Uppercase letter,1 lowercase letter and 1 special character(#?!@$%^&*-).
+        </p>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="Password" autocomplete="password">
 
         @if ($errors->has('password'))            

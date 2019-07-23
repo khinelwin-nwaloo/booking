@@ -80,8 +80,8 @@ endif; ?>" name="email" value="<?php echo e(old('email')); ?>" placeholder="Emai
 
       <div class="form-group  <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
         <label for="password" ><?php echo e(__('Password')); ?></label>
-        <p style="color: red;">Passwords must have mininum 8, at least 1 number,1 Uppercase letter,1 lowercase letter and 1 special character(#?!@$%^&*-).
- </p>
+        <p style="color:black;">Passwords must have mininum 8, at least 1 number,1 Uppercase letter,1 lowercase letter and 1 special character(#?!@$%^&*-).
+        </p>
         <input id="password" type="password" class="form-control <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('password'); ?> is-invalid <?php unset($message);

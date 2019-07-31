@@ -11,7 +11,9 @@
           <th class="th-sm">Age</th>
           <th class="th-sm">Phone</th>
           <th class="th-sm">Email </th>
-          <th class="th-sm"> Address</th>
+          <th class="th-sm">Address</th>
+          <th class="th-sm">Dr.' remark</th>
+          <th></th>
           
         </tr>
       </thead>
@@ -26,7 +28,8 @@
           <td><?php echo e($history->patient->phone); ?></td>
           <td><?php echo e($history->patient->email); ?></td>
           <td><?php echo e($history->patient->address); ?></td>
-          
+          <td><?php echo e($history->doctor_remark); ?></td>
+          <td> <a href="">Edit</a></td>
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </tbody>

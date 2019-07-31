@@ -12,7 +12,9 @@
           <th class="th-sm">Age</th>
           <th class="th-sm">Phone</th>
           <th class="th-sm">Email </th>
-          <th class="th-sm"> Address</th>
+          <th class="th-sm">Address</th>
+          <th class="th-sm">Dr.' remark</th>
+          <th></th>
           
         </tr>
       </thead>
@@ -27,7 +29,8 @@
           <td>{{ $history->patient->phone}}</td>
           <td>{{ $history->patient->email}}</td>
           <td>{{ $history->patient->address}}</td>
-          
+          <td>{{ $history->doctor_remark}}</td>
+          <td> <a href="url('/appointment/doctor_remark')">Edit</a></td>
         </tr>
         @endforeach
       </tbody>

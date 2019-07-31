@@ -209,7 +209,7 @@ class DoctorController extends Controller
         $user = Session::get('user');
         $doctor_id = $user->id;
         $his_patient = Appointment::where('doctor_id',$doctor_id)
-        ->where('status' ,'=', 2)
+        ->whereIn('status',[2,3])
         ->orderBy('created_at')->get();
         return view('doctors.history_patients',compact('his_patient'));
     }

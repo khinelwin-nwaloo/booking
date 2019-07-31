@@ -60,6 +60,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'department_id'=>'required',
             'doctor_id'=> 'required',
@@ -75,11 +76,26 @@ class AppointmentController extends Controller
         ->where('appointment_date',$appointment_date)->count();
 
         if($appoint_count < 50){
+
             $department_id = $request->get('department_id');
             $patient_id = $request->get('patient_id');
             $appointment_time = $request->get('duties');
             $reason = $request->get('reason');
             $remark = $request->get('remark');
+
+            $now = date('Y-m-d');
+            if($now == $appointment_date){
+                $str = "Hello world. It's a beautiful day.";
+                $time_arr = explode("-",$appointment_time);
+
+                $time = explode("[",$time_arr[0]);
+                $appoint_time = $time[1];
+
+                $now_time = date("h:i a");
+
+                //return $appoint_time.$now_time . date("H:i", strtotime("04:25 PM"));;
+            }
+            
 
             $appointment = new Appointment();
             $appointment->department_id = $department_id;

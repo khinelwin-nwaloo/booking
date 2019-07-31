@@ -252,37 +252,37 @@ function create_time_range($start, $end, $interval = '30 mins', $format = '12') 
         var duty_time = [];
 
         if(duties[0]['mon_s']){
-          duty_time[0] = 'Monday:' +duties[0]['mon_s'] +' - '+duties[0]['mon_e'] ;
+          duty_time[0] = 'Monday[' +duties[0]['mon_s'] +' - '+duties[0]['mon_e']+']';
         }else{
           duty_time[0] = '';
         }
         if(duties[0]['tue_s']){
-          duty_time[1] = 'Tueday:'+duties[0]['tue_s'] +' - '+duties[0]['tue_e'] ;
+          duty_time[1] = 'Tueday['+duties[0]['tue_s'] +' - '+duties[0]['tue_e']+']' ;
         }else{
           duty_time[1] = '';
         }
         if(duties[0]['wed_s']){
-          duty_time[2] = 'Wednesday:'+duties[0]['wed_s'] +' - '+duties[0]['wed_e'] ;
+          duty_time[2] = 'Wednesday['+duties[0]['wed_s'] +' - '+duties[0]['wed_e']+']' ;
         }else{
           duty_time[2] = '';
         }
         if(duties[0]['thu_s']){
-          duty_time[3] = 'Thursday:'+duties[0]['thu_s'] +' - '+duties[0]['thu_e'] ;
+          duty_time[3] = 'Thursday['+duties[0]['thu_s'] +' - '+duties[0]['thu_e']+']' ;
         }else{
           duty_time[3] = '';
         }
         if(duties[0]['fri_s']){
-          duty_time[4] = 'Friday:'+duties[0]['fri_s'] +' - '+duties[0]['fri_e'] ;
+          duty_time[4] = 'Friday['+duties[0]['fri_s'] +' - '+duties[0]['fri_e']+']' ;
         }else{
           duty_time[4] = '';
         }
         if(duties[0]['sat_s']){
-         duty_time[5] = 'Saturday:'+duties[0]['sat_s'] +' - '+duties[0]['sat_e'] ;
+         duty_time[5] = 'Saturday['+duties[0]['sat_s'] +' - '+duties[0]['sat_e']+']' ;
        }else{
         duty_time[5] = '';
       }
       if(duties[0]['sun_s']){
-        duty_time[6] = 'Sun:'+duties[0]['sun_s'] +' - '+duties[0]['sun_e'] ;
+        duty_time[6] = 'Sun['+duties[0]['sun_s'] +' - '+duties[0]['sun_e']+']' ;
       }else{
         duty_time[6] = '';
       }

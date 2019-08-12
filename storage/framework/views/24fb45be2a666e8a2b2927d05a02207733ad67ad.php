@@ -1,3 +1,21 @@
+    <style type="text/css">
+        
+        a.notif {
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url('assets/img/noti.png');
+  background-size: contain;
+  text-decoration: none;
+}
+.num {
+  position: absolute;
+  right: 11px;
+  top: 6px;
+  color: #fff;
+}
+    </style>
     <header id="header">
         <div class="header-top">
             <div class="container">
@@ -9,7 +27,7 @@
                     <div class="col-lg-6 col-sm-6 col-8 header-top-right">
                      <?php $user = session()->get('user');  ?>
                      <?php if($user): ?>
-                     
+                        <a href="" class="notif"><span class="num">2</span></a>
                          <a href="<?php echo e(url('/patient/history')); ?>"  style="font-weight: bold;font-size:13px;padding-right:15px;">History</a>
                      
                           <a href="<?php echo e(url('/appointments/create')); ?>" style="font-weight: bold;font-size:13px;padding-right:15px;">Book An Appointment</a>

@@ -650,3 +650,18 @@ h5{
 						margin-top: -35%;
 					}
 				}
+				a.notif {
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url('/assets/img/noti.png');
+  background-size: contain;
+  text-decoration: none;
+}
+.num {
+  position: absolute;
+  right: 11px;
+  top: 6px;
+  color: #fff;
+}

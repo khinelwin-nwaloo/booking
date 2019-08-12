@@ -29,7 +29,7 @@
           <td><?php echo e($history->patient->email); ?></td>
           <td><?php echo e($history->patient->address); ?></td>
           <td><?php echo e($history->doctor_remark); ?></td>
-          <td> <a href="">Edit</a></td>
+          <td> <a href="<?php echo e(url('/appointment/doctor_remark/'.$history->id)); ?>">Edit</a></td>
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </tbody>

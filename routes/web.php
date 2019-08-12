@@ -58,5 +58,9 @@ Route::get('/contact', 'HospitalController@contact');
 	Route::get('/department/get_duties','AppointmentController@get_duties');
 
 	Route::get('/department/{id}','DepartmentController@get_doctor');
+
+	Route::get('/appointment/doctor_remark/{id}','DoctorController@remark');
+	Route::post('/appointment/dr_remark','DoctorController@save_remark');
+	
 //});
 

@@ -34,11 +34,10 @@
  </div>
  <?php endif; ?>
 </div>
-<section class="team-area section-gap">
+<!-- <section class="team-area section-gap"> -->
   <div class="container">
     <div class="page-content">
       <div class="row">
-
         <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
@@ -80,7 +79,7 @@
 
     </div>
   </div>
-</section>
+<!-- </section> -->
 
 
 <?php $__env->stopSection(); ?>

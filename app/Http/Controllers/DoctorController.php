@@ -214,4 +214,24 @@ class DoctorController extends Controller
         return view('doctors.history_patients',compact('his_patient'));
     }
 
+    public function remark(Request $request,$id){
+        $patient_id = $id;
+        $appointment = Appointment::find($patient_id);
+
+        return view('doctors.doctor_remark',compact('appointment'));
+    }
+    public function save_remark(Request $request){
+        
+        $app_id = $request->get('app_id');
+        $doc_remark = $request->get('doc_remark');
+        
+        $appointment = Appointment::find($app_id);
+        $appointment->doctor_remarks = $doc_remark;
+        $appointment->save();
+
+        $appointment = Appointment::find($app_id);
+        return view('doctors.doctor_remark',compact('appointment'));
+    }
+    
+
 }

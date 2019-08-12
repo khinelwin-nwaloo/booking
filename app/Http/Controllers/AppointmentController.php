@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Appointment;
 use App\Department;
 use App\Doctor;
 use App\Duty;
 use Session;
+use DateTime;
 
 class AppointmentController extends Controller
 {
@@ -85,15 +87,37 @@ class AppointmentController extends Controller
 
             $now = date('Y-m-d');
             if($now == $appointment_date){
-                $str = "Hello world. It's a beautiful day.";
                 $time_arr = explode("-",$appointment_time);
 
                 $time = explode("[",$time_arr[0]);
-                $appoint_time = $time[1];
+                $duty = $time[1];
 
                 $now_time = date("h:i a");
+                //$app_date_time = date("h:i a", strtotime("+4 hours"));
 
-                //return $appoint_time.$now_time . date("H:i", strtotime("04:25 PM"));;
+                
+                $app_time = new DateTime($now_time);
+                $duty_time = new DateTime($duty);
+                //return $app_date_time.$duty;
+                $interval = $duty_time->diff($app_time);
+                $hr = $interval->format('%hh');
+
+                
+                if($hr < '4h'){
+                     return Redirect::back()->with('fail', 'Please appointment again!!!');
+                }else{
+                    $appointment = new Appointment();
+                    $appointment->department_id = $department_id;
+                    $appointment->doctor_id = $doctor_id;
+                    $appointment->appointment_date = $appointment_date;
+                    $appointment->appointment_time = $appointment_time;
+                    $appointment->reason = $reason;
+                    $appointment->remarks = $remark;
+                    $appointment->patient_id = $patient_id;
+                    
+                    $appointment->save();
+                    return redirect('/patient/history')->with('success', 'Appointment has been added successfully');
+                }
             }
             
 

@@ -229,8 +229,13 @@ class DoctorController extends Controller
         $appointment->doctor_remarks = $doc_remark;
         $appointment->save();
 
-        $appointment = Appointment::find($app_id);
-        return view('doctors.doctor_remark',compact('appointment'));
+        $user = Session::get('user');
+        $doctor_id = $user->id;
+        $his_patient = Appointment::where('doctor_id',$doctor_id)
+        ->whereIn('status',[2,3])
+        ->orderBy('created_at')->get();
+        return view('doctors.history_patients',compact('his_patient'));
+
     }
     
 

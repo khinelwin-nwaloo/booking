@@ -29,7 +29,7 @@
           <td>{{ $history->patient->phone}}</td>
           <td>{{ $history->patient->email}}</td>
           <td>{{ $history->patient->address}}</td>
-          <td>{{ $history->doctor_remark}}</td>
+          <td>{{ $history->doctor_remarks}}</td>
           <td> <a href="{{ url('/appointment/doctor_remark/'.$history->id)}}">Edit</a></td>
         </tr>
         @endforeach

@@ -77,7 +77,7 @@ class AppointmentController extends Controller
         $appoint_count = Appointment::where('doctor_id',$doctor_id)
         ->where('appointment_date',$appointment_date)->count();
 
-        if($appoint_count < 50){
+        if($appoint_count < 10){
 
             $department_id = $request->get('department_id');
             $patient_id = $request->get('patient_id');

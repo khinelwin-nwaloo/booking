@@ -22,6 +22,8 @@ Route::get('/',function(){
 Auth::routes();
 
 
+
+
 /*For Website*/
 Route::get('/home', 'HospitalController@home');
 Route::get('/department', 'HospitalController@doctor');
@@ -46,12 +48,13 @@ Route::get('/contact', 'HospitalController@contact');
 	Route::post('/patient/create', 'PatientController@store');
 	Route::get('/login', 'PatientController@show_login');
 	Route::post('/loginpatient', 'PatientController@login');
+	//Route::post('/logout','Auth\PatientController@Logout');
 	Route::post('/logout','PatientController@Logout');
 
 	/*For Admin*/
-	Route::get('/Admin_Login','LoginController@adminlogin');
-	Route::post('/adminLogin','LoginController@Login');
-	Route::post('/admin_logout','LoginController@Logout');
+	Route::get('/Admin_Login','AdminLoginController@adminlogin');
+	Route::post('/adminLogin','AdminLoginController@Login');
+	Route::post('/admin_logout','AdminLoginController@Logout');
 	Route::get('/dashboard','HospitalController@dashboard');
 
 	Route::get('/department/get_doctor','AppointmentController@get_department');

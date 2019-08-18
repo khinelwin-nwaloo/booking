@@ -46,6 +46,23 @@
         </span>
         @endif    
       </div>
+      <div class="form-group {{ $errors->has('retake') ? ' has-error' : '' }}">
+        <label for="name" >{{ __('Retake') }}</label>
+        @if($appointment->retake == 1 ) 
+            <input type="checkbox" name="retake" checked>
+        @else
+             <input type="checkbox" name="retake" >
+        @endif
+
+        
+
+
+        @if ($errors->has('retake'))            
+        <span class="help-block">
+          <strong>{{ $errors->first('retake') }}</strong>
+        </span>
+        @endif    
+      </div>
 
   
       <button type="submit" align ="center" class="btn btn-primary">Save</button>

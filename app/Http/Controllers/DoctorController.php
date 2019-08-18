@@ -224,9 +224,16 @@ class DoctorController extends Controller
         
         $app_id = $request->get('app_id');
         $doc_remark = $request->get('doc_remark');
+        $retake = $request->get('retake');
         
+        if($retake){
+            $retake= 1;
+        }else{
+            $retake= 0; 
+        }
         $appointment = Appointment::find($app_id);
         $appointment->doctor_remarks = $doc_remark;
+        $appointment->retake = $retake;
         $appointment->save();
 
         $user = Session::get('user');

@@ -46,6 +46,23 @@
         </span>
         <?php endif; ?>    
       </div>
+      <div class="form-group <?php echo e($errors->has('retake') ? ' has-error' : ''); ?>">
+        <label for="name" ><?php echo e(__('Retake')); ?></label>
+        <?php if($appointment->retake == 1 ): ?> 
+            <input type="checkbox" name="retake" checked>
+        <?php else: ?>
+             <input type="checkbox" name="retake" >
+        <?php endif; ?>
+
+        
+
+
+        <?php if($errors->has('retake')): ?>            
+        <span class="help-block">
+          <strong><?php echo e($errors->first('retake')); ?></strong>
+        </span>
+        <?php endif; ?>    
+      </div>
 
   
       <button type="submit" align ="center" class="btn btn-primary">Save</button>

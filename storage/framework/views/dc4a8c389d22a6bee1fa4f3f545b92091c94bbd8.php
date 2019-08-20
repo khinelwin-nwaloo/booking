@@ -46,7 +46,7 @@
         </span>
         <?php endif; ?>    
       </div>
-      <div class="form-group <?php echo e($errors->has('retake') ? ' has-error' : ''); ?>">
+      <!-- <div class="form-group <?php echo e($errors->has('retake') ? ' has-error' : ''); ?>">
         <label for="name" ><?php echo e(__('Retake')); ?></label>
         <?php if($appointment->retake == 1 ): ?> 
             <input type="checkbox" name="retake" checked>
@@ -62,7 +62,21 @@
           <strong><?php echo e($errors->first('retake')); ?></strong>
         </span>
         <?php endif; ?>    
-      </div>
+      </div> -->
+      <div class="form-group  <?php echo e($errors->has('appointment_date') ? ' has-error' : ''); ?>">
+          <label for="duties" ><?php echo e(__('Appointment Date')); ?></label>
+          <div class="input-group">
+            <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e(old('appointment_date')); ?>" placeholder="Appointment date" autocomplete="off">
+            <span class="input-group-addon">
+              <i class="fa fa-calendar bigger-110"></i>
+            </span>
+          </div> 
+          <?php if($errors->has('appointment_date')): ?>            
+          <span class="help-block">
+            <strong style="color: red;"><?php echo e($errors->first('appointment_date')); ?></strong>
+          </span>
+          <?php endif; ?> 
+        </div>
 
   
       <button type="submit" align ="center" class="btn btn-primary">Save</button>
@@ -86,6 +100,10 @@
     });
     $('.dataTables_length').addClass('bs-select');
   });
+
+  $("#appointment_date").datepicker({ 
+    format: 'yyyy-mm-dd'
+   });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\hospital_booking\resources\views/doctors/doctor_remark.blade.php ENDPATH**/ ?>

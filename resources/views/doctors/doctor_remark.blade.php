@@ -46,7 +46,7 @@
         </span>
         @endif    
       </div>
-      <div class="form-group {{ $errors->has('retake') ? ' has-error' : '' }}">
+      <!-- <div class="form-group {{ $errors->has('retake') ? ' has-error' : '' }}">
         <label for="name" >{{ __('Retake') }}</label>
         @if($appointment->retake == 1 ) 
             <input type="checkbox" name="retake" checked>
@@ -62,7 +62,21 @@
           <strong>{{ $errors->first('retake') }}</strong>
         </span>
         @endif    
-      </div>
+      </div> -->
+      <div class="form-group  {{ $errors->has('appointment_date') ? ' has-error' : '' }}">
+          <label for="duties" >{{ __('Appointment Date') }}</label>
+          <div class="input-group">
+            <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="{{ old('appointment_date') }}" placeholder="Appointment date" autocomplete="off">
+            <span class="input-group-addon">
+              <i class="fa fa-calendar bigger-110"></i>
+            </span>
+          </div> 
+          @if ($errors->has('appointment_date'))            
+          <span class="help-block">
+            <strong style="color: red;">{{ $errors->first('appointment_date') }}</strong>
+          </span>
+          @endif 
+        </div>
 
   
       <button type="submit" align ="center" class="btn btn-primary">Save</button>
@@ -86,5 +100,9 @@
     });
     $('.dataTables_length').addClass('bs-select');
   });
+
+  $("#appointment_date").datepicker({ 
+    format: 'yyyy-mm-dd'
+   });
 </script>
 @endsection

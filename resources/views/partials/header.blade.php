@@ -31,6 +31,8 @@
             <?php $patients = \App\Appointment::where('patient_id',$user->id)
                               ->where('retake',1)->get();
 
+
+
              ?>
              <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
@@ -38,9 +40,15 @@
                   Notification
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  @foreach($patients as $patient)
-                  <a class="dropdown-item" href="#">{{ $patient->doctor_remarks}}</a>
-                  @endforeach
+                  
+                    @foreach($patients as $patient)
+                    @if($patient->doctor_remarks)
+                    <a class="dropdown-item" href="#">{{ $patient->doctor_remarks}}</a>
+                    @else
+                      <a class="dropdown-item" href="#">No Appointment</a>
+                    @endif
+                    @endforeach
+                  
                 </div>
               </li> 
             </ul>

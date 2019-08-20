@@ -217,7 +217,12 @@ class DoctorController extends Controller
     public function remark(Request $request,$id){
         $patient_id = $id;
         $appointment = Appointment::find($patient_id);
+        $doctor_id = $appointment->doctor_id;
 
+        $duty = Duty::where('doctor_id',$doctor_id)->first();
+       
+        
+        
         return view('doctors.doctor_remark',compact('appointment'));
     }
     public function save_remark(Request $request){

@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Patient extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Patient extends Authenticatable
 {
+	
 	use SoftDeletes;
 	protected $dates = ['deleted_at'];
 

@@ -31,6 +31,8 @@
             <?php $patients = \App\Appointment::where('patient_id',$user->id)
                               ->where('retake',1)->get();
 
+
+
              ?>
              <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
@@ -38,9 +40,15 @@
                   Notification
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <a class="dropdown-item" href="#"><?php echo e($patient->doctor_remarks); ?></a>
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
+                    <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($patient->doctor_remarks): ?>
+                    <a class="dropdown-item" href="#"><?php echo e($patient->doctor_remarks); ?></a>
+                    <?php else: ?>
+                      <a class="dropdown-item" href="#">No Appointment</a>
+                    <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
                 </div>
               </li> 
             </ul>

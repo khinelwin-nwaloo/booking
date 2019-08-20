@@ -221,17 +221,39 @@ class DoctorController extends Controller
 
         $duty = Duty::where('doctor_id',$doctor_id)->first();
        
+       $duty_day = array();
+       if($duty->sun_s){
+        $duty_day[] = 'Sunday';
+       }
+        if($duty->mon_s){
+        $duty_day[] = 'Monday';
+       }
+        if($duty->tue_s){
+        $duty_day[] = 'Tueday';
+       }
+        if($duty->wed_s){
+        $duty_day[] = 'Wednesday';
+       }
+        if($duty->thu_s){
+        $duty_day[] = 'Thuresday';
+       }
+        if($duty->fri_s){
+        $duty_day[] = 'Friday';
+       }
+        if($duty->sat_s){
+        $duty_day[] = 'Saturday';
+       }
         
-        
-        return view('doctors.doctor_remark',compact('appointment'));
+
+        return view('doctors.doctor_remark',compact('appointment','duty_day'));
     }
     public function save_remark(Request $request){
         
         $app_id = $request->get('app_id');
         $doc_remark = $request->get('doc_remark');
-        $retake = $request->get('retake');
+        $appointment_date = $request->get('appointment_date');
         
-        if($retake){
+        if($appointment_date){
             $retake= 1;
         }else{
             $retake= 0; 
@@ -239,6 +261,7 @@ class DoctorController extends Controller
         $appointment = Appointment::find($app_id);
         $appointment->doctor_remarks = $doc_remark;
         $appointment->retake = $retake;
+        $appointment->retake_date = $appointment_date;
         $appointment->save();
 
         $user = Session::get('user');

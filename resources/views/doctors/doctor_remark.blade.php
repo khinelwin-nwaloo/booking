@@ -46,27 +46,33 @@
         </span>
         @endif    
       </div>
-      <!-- <div class="form-group {{ $errors->has('retake') ? ' has-error' : '' }}">
-        <label for="name" >{{ __('Retake') }}</label>
-        @if($appointment->retake == 1 ) 
-            <input type="checkbox" name="retake" checked>
-        @else
-             <input type="checkbox" name="retake" >
-        @endif
+      <div class="form-group {{ $errors->has('duty_day') ? ' has-error' : '' }}">
+        <label for="name" >{{ __('Duty Day') }}</label>
+        <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
+          <option value="" selected>Duty Day</option >
+          <?php for($i = 0 ; $i < count($duty_day); $i++){ ?>
+             <option value="{{ $duty_day[$i] }}" >{{ $duty_day[$i] }} </option >
+          <?php } ?>
+          
+        </select>
 
         
 
 
-        @if ($errors->has('retake'))            
+        @if ($errors->has('duty_day'))            
         <span class="help-block">
-          <strong>{{ $errors->first('retake') }}</strong>
+          <strong>{{ $errors->first('duty_day') }}</strong>
         </span>
         @endif    
-      </div> -->
+      </div>
       <div class="form-group  {{ $errors->has('appointment_date') ? ' has-error' : '' }}">
           <label for="duties" >{{ __('Appointment Date') }}</label>
           <div class="input-group">
+            @if($appointment->retake_date)
+            <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="{{ $appointment->retake_date }}" placeholder="Appointment date" autocomplete="off">
+            @else
             <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="{{ old('appointment_date') }}" placeholder="Appointment date" autocomplete="off">
+            @endif
             <span class="input-group-addon">
               <i class="fa fa-calendar bigger-110"></i>
             </span>
@@ -102,7 +108,8 @@
   });
 
   $("#appointment_date").datepicker({ 
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    setDate: new Date(),
    });
 </script>
 @endsection

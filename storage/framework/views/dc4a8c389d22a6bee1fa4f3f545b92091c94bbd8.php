@@ -46,27 +46,33 @@
         </span>
         <?php endif; ?>    
       </div>
-      <!-- <div class="form-group <?php echo e($errors->has('retake') ? ' has-error' : ''); ?>">
-        <label for="name" ><?php echo e(__('Retake')); ?></label>
-        <?php if($appointment->retake == 1 ): ?> 
-            <input type="checkbox" name="retake" checked>
-        <?php else: ?>
-             <input type="checkbox" name="retake" >
-        <?php endif; ?>
+      <div class="form-group <?php echo e($errors->has('duty_day') ? ' has-error' : ''); ?>">
+        <label for="name" ><?php echo e(__('Duty Day')); ?></label>
+        <select name="reason" id="reason" name="reason" class="form-control selectpicker"> 
+          <option value="" selected>Duty Day</option >
+          <?php for($i = 0 ; $i < count($duty_day); $i++){ ?>
+             <option value="<?php echo e($duty_day[$i]); ?>" ><?php echo e($duty_day[$i]); ?> </option >
+          <?php } ?>
+          
+        </select>
 
         
 
 
-        <?php if($errors->has('retake')): ?>            
+        <?php if($errors->has('duty_day')): ?>            
         <span class="help-block">
-          <strong><?php echo e($errors->first('retake')); ?></strong>
+          <strong><?php echo e($errors->first('duty_day')); ?></strong>
         </span>
         <?php endif; ?>    
-      </div> -->
+      </div>
       <div class="form-group  <?php echo e($errors->has('appointment_date') ? ' has-error' : ''); ?>">
           <label for="duties" ><?php echo e(__('Appointment Date')); ?></label>
           <div class="input-group">
+            <?php if($appointment->retake_date): ?>
+            <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e($appointment->retake_date); ?>" placeholder="Appointment date" autocomplete="off">
+            <?php else: ?>
             <input id="appointment_date" type="text" class="form-control" name="appointment_date" value="<?php echo e(old('appointment_date')); ?>" placeholder="Appointment date" autocomplete="off">
+            <?php endif; ?>
             <span class="input-group-addon">
               <i class="fa fa-calendar bigger-110"></i>
             </span>
@@ -102,7 +108,8 @@
   });
 
   $("#appointment_date").datepicker({ 
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    setDate: new Date(),
    });
 </script>
 <?php $__env->stopSection(); ?>

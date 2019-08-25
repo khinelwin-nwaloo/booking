@@ -45,6 +45,8 @@
               <th class="th-sm">Date </th>
               <th class="th-sm">Department</th>
               <th class="th-sm">Remark</th>
+              <th>Date</th>
+              <th>Retake Date</th>
               <th></th>
             </tr>
           </thead>
@@ -59,6 +61,8 @@
               <td>{{ $appointment->appointment_date}}</td>
               <td>{{ $appointment->department->name}}</td>
               <td>{{ $appointment->remarks }}</td>
+              <td>{{ date_format($appointment->created_at,"Y-m-d") }}</td>
+              <td>{{ $appointment->retake_date }}</td>
               <td align="center">
                 @if($appointment->status == 2)
                 Finish
@@ -67,6 +71,8 @@
                 @elseif($appointment->status == 3)
                 Completed
                 @endif
+
+                <a href="{{url('/appointment_details/'.$appointment->id)}}">Show</a>
               </td>
             </tr>
             @endforeach

@@ -100,6 +100,13 @@
 <?php $__env->startSection('js'); ?>
 <script type="text/javascript">
   $(document).ready(function () {
+
+    $("#appointment_date").datepicker({ 
+        format: 'yyyy-mm-dd',
+        minDate: 0, 
+        maxDate: '+7d' 
+    });
+
     $('#dtBasicExample').DataTable({
       "paging": "simple" 
       // false to disable pagination (or any other option)
@@ -107,10 +114,7 @@
     $('.dataTables_length').addClass('bs-select');
   });
 
-  $("#appointment_date").datepicker({ 
-    format: 'yyyy-mm-dd',
-    setDate: new Date(),
-   });
+  
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\hospital_booking\resources\views/doctors/doctor_remark.blade.php ENDPATH**/ ?>

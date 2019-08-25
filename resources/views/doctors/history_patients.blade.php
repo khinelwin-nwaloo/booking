@@ -14,6 +14,8 @@
           <th class="th-sm">Email </th>
           <th class="th-sm">Address</th>
           <th class="th-sm">Dr.' remark</th>
+          <th class="th-sm">Date</th>
+          <th class="th-sm">Retake Date</th>
           <th></th>
           
         </tr>
@@ -29,6 +31,8 @@
           <td>{{ $history->patient->phone}}</td>
           <td>{{ $history->patient->email}}</td>
           <td>{{ $history->patient->address}}</td>
+          <td>{{ $history->doctor_remarks}}</td>
+          <td>{{ date_format($history->created_at,"Y-m-d") }}</td>
           <td>{{ $history->doctor_remarks}}</td>
           <td> <a href="{{ url('/appointment/doctor_remark/'.$history->id)}}">Edit</a></td>
         </tr>

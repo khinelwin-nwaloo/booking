@@ -28,10 +28,9 @@
             <div class="col-lg-2 col-sm-6 col-8 header-top-right">
               @if($user)
 
-              <?php $patients = \App\Appointment::where('patient_id',$user->id)
+              <?php $appointments = \App\Appointment::where('patient_id',$user->id)
               ->where('retake',1)->get();
-              $count = count($patients);
-              
+              $count = count($appointments);
 
               ?>
               <ul class="navbar-nav mr-auto">
@@ -41,10 +40,13 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @if($count != 0)
-                    @foreach($patients as $patient)
-                    
-                    <a class="dropdown-item" href="#">{{ $patient->doctor_remarks}}</a>
-                    
+                    @foreach($appointments as $appointment)
+
+                    <a class="dropdown-item" href="{{ url('appointment_details/'.$appointment->id) }}" style="font-size:13px;">
+                      <b>Retake Date:</b>{{ $appointment->retake_date}}<br>
+                      <b>Dr's Remark:</b>{{ $appointment->doctor_remarks}}
+                    </a>
+
                     @endforeach
                     @else
                     <a class="dropdown-item" href="#">No Retake Appointment</a>
@@ -57,7 +59,7 @@
             </div>
             @if($user)
             <div class="col-lg-5 col-sm-6 col-8 header-top-left"> 
-              
+
              <!-- <a href="" class="notif"><span class="num">2</span></a> -->
              <a href="{{url('/patient/history')}}"  style="font-weight: bold;font-size:13px;padding-right:15px;">History</a>
 

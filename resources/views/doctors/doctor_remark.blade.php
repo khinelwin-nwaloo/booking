@@ -100,6 +100,13 @@
 @section('js')
 <script type="text/javascript">
   $(document).ready(function () {
+
+    $("#appointment_date").datepicker({ 
+        format: 'yyyy-mm-dd',
+        minDate: 0, 
+        maxDate: '+7d' 
+    });
+
     $('#dtBasicExample').DataTable({
       "paging": "simple" 
       // false to disable pagination (or any other option)
@@ -107,9 +114,6 @@
     $('.dataTables_length').addClass('bs-select');
   });
 
-  $("#appointment_date").datepicker({ 
-    format: 'yyyy-mm-dd',
-    setDate: new Date(),
-   });
+  
 </script>
 @endsection

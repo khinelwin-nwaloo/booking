@@ -9,9 +9,10 @@ use App\Department;
 use App\Doctor;
 use App\Appointment;
 use Session;
-
+use Auth;
     class PatientController extends Controller
     {
+    
     /**
     * Display a listing of the resource.
     *
@@ -44,7 +45,15 @@ use Session;
 
     }
 
-    public function History(){
+    public function app_details(Request $request ,$id){
+
+        $user = Session::get('user');
+        $appointment = Appointment::find($id);
+        
+        return view('patient.details',compact('appointment','user'));
+
+    }
+    public function history(){
 
         $user = Session::get('user');
 

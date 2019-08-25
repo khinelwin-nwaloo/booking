@@ -24,7 +24,7 @@
         margin-right: auto;vertical-align: middle;" class="center" src="{{ url('/assets/img/osclogo.png') }}">
         <br>
         <form class="form-horizontal" method="POST" 
-        action="{{url('adminLogin')}}" enctype="multipart/form-data">
+        action="{{url('admin/login')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
             <label for="role" class="col-md-4 control-label">Login As</label>

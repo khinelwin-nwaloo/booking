@@ -46,6 +46,8 @@
               <th class="th-sm">Date </th>
               <th class="th-sm">Department</th>
               <th class="th-sm">Remark</th>
+              <th>Date</th>
+              <th>Retake Date</th>
               <th></th>
             </tr>
           </thead>
@@ -60,6 +62,8 @@
               <td><?php echo e($appointment->appointment_date); ?></td>
               <td><?php echo e($appointment->department->name); ?></td>
               <td><?php echo e($appointment->remarks); ?></td>
+              <td><?php echo e(date_format($appointment->created_at,"Y-m-d")); ?></td>
+              <td><?php echo e($appointment->retake_date); ?></td>
               <td align="center">
                 <?php if($appointment->status == 2): ?>
                 Finish
@@ -68,6 +72,8 @@
                 <?php elseif($appointment->status == 3): ?>
                 Completed
                 <?php endif; ?>
+
+                <a href="<?php echo e(url('/appointment_details/'.$appointment->id)); ?>">Show</a>
               </td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

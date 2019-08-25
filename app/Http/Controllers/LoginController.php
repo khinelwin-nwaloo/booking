@@ -11,7 +11,7 @@ use App\Admin;
 use App\Doctor;
 use Session;
 class LoginController extends Controller
-{
+{  
     public  function adminlogin(){
 
         $roles = Role::where('id','!=','3')->get();

@@ -28,10 +28,9 @@
             <div class="col-lg-2 col-sm-6 col-8 header-top-right">
               <?php if($user): ?>
 
-              <?php $patients = \App\Appointment::where('patient_id',$user->id)
+              <?php $appointments = \App\Appointment::where('patient_id',$user->id)
               ->where('retake',1)->get();
-              $count = count($patients);
-              
+              $count = count($appointments);
 
               ?>
               <ul class="navbar-nav mr-auto">
@@ -41,10 +40,14 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php if($count != 0): ?>
-                    <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    
-                    <a class="dropdown-item" href="#"><?php echo e($patient->doctor_remarks); ?></a>
-                    
+                    <?php $__currentLoopData = $appointments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $appointment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                    <a class="dropdown-item" href="<?php echo e(url('appointment_details/'.$appointment->id)); ?>" style="font-size:13px;">
+                      <b>Retake Date:</b><?php echo e($appointment->retake_date); ?><br>
+                      <b>Dr's Remark:</b><?php echo e($appointment->doctor_remarks); ?>
+
+                    </a>
+
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php else: ?>
                     <a class="dropdown-item" href="#">No Retake Appointment</a>
@@ -57,7 +60,7 @@
             </div>
             <?php if($user): ?>
             <div class="col-lg-5 col-sm-6 col-8 header-top-left"> 
-              
+
              <!-- <a href="" class="notif"><span class="num">2</span></a> -->
              <a href="<?php echo e(url('/patient/history')); ?>"  style="font-weight: bold;font-size:13px;padding-right:15px;">History</a>
 

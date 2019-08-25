@@ -50,7 +50,7 @@ return [
             'provider' => 'admins',
         ],
         'patient' => [
-            'driver' => 'token',
+            'driver' => 'session',
             'provider' => 'patients',
         ],
     ],

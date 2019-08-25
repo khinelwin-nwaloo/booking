@@ -16,11 +16,6 @@ class AdminLoginController extends Controller
 {   
     use AuthenticatesUsers;
 
-    public function __construct()
-    {
-        $this->middleware('guest:admin,Admin_Login')->except('logout');
-    }
-
     public  function adminlogin(){
 
         $roles = Role::where('id','!=','3')->get();

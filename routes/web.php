@@ -22,8 +22,20 @@ Route::get('/',function(){
 Auth::routes();
 
 Route::get('admin/login', 'Auth\Admin_LoginController@showLoginForm');
+Route::post('admin/login','Auth\Admin_LoginController@Login');
 
+Route::get('patient/login', 'Auth\PatientLoginController@showLoginForm');
+Route::post('patient/login', 'Auth\PatientLoginController@login');
 
+Route::group(['prefix' => 'patient','middleware' => 'assign.guard:patient,patient/login'],function(){
+	
+	// Route::get('home',function ()
+	// {
+	// 	return view('adminhome');
+	// });
+	//Route::get('history','PatientController@History');
+
+});
 
 /*For Website*/
 Route::get('/home', 'HospitalController@home');
@@ -44,7 +56,8 @@ Route::get('/contact', 'HospitalController@contact');
 	/*For Patient*/
 	/*Route::resource('patient', 'PatientController');*/
 	Route::get('/patient','PatientController@index');
-	Route::get('/patient/history','PatientController@History');
+	Route::get('/patient/history','PatientController@history');
+	Route::get('/appointment_details/{id}','PatientController@app_details');
 	Route::get('/register', 'PatientController@register');
 	Route::post('/patient/create', 'PatientController@store');
 	Route::get('/login', 'PatientController@show_login');

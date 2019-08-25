@@ -11,7 +11,8 @@ use App\Duty;
 use App\Appointment;
 use Session;
 class DoctorController extends Controller
-{
+{   
+
     /**
      * Display a listing of the resource.
      *

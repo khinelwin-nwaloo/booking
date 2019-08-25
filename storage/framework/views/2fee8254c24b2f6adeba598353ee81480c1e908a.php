@@ -25,7 +25,7 @@
         margin-right: auto;vertical-align: middle;" class="center" src="<?php echo e(url('/assets/img/osclogo.png')); ?>">
         <br>
         <form class="form-horizontal" method="POST" 
-        action="<?php echo e(url('adminLogin')); ?>" enctype="multipart/form-data">
+        action="<?php echo e(url('admin/login')); ?>" enctype="multipart/form-data">
         <?php echo e(csrf_field()); ?>
 
         <div class="form-group<?php echo e($errors->has('role') ? ' has-error' : ''); ?>">
